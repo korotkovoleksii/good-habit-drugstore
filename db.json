@@ -1,0 +1,17 @@
+{
+    "header-info": {
+        "phone": "1234567800",
+        "work-hours": "we ate open 24/7"
+    },
+    "social-network": [
+        { "id": 1, "link": "facebook.com" },
+        { "id": 2, "link": "instagram.com" },
+        { "id": 3, "link": "youtube.com" }
+    ],
+    "navigation-link": [
+        { "id": 1, "title": "Products", "link": "#" },
+        { "id": 2, "title": "About Us", "link": "#" },
+        { "id": 3, "title": "Best Deals", "link": "#" },
+        { "id": 4, "title": "latest News", "link": "#" }
+    ]
+}
