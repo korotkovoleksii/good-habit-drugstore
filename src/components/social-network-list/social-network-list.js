@@ -1,27 +1,27 @@
 import './social-network-list.css';
 import SocialNetworkItem from '../social-network-item/social-network-item';
-import facebookIcon from '../../assets/images/facebook-icon.png';
-import instagramIcon from '../../assets/images/instagram-icon.png';
-import youtubeIcon from '../../assets/images/youtube-icon.png';
+import { useState, useEffect } from 'react';
 const SocialNetworkList = () => {
-    return (
-        <div>
+    const [arrSocialNetwork, setArrSocialNetwork] = useState([]);
+
+    useEffect(() => {
+        const domain = process.env.REACT_APP_DOMAIN;
+        fetch(`${domain}/social-network`)
+            .then((response) => response.json())
+            .then((data) => {
+                setArrSocialNetwork(data);
+            });
+    }, []);
+    console.log(arrSocialNetwork);
+    const socialNetworkItems = arrSocialNetwork.map((item) => {
+        return (
             <SocialNetworkItem
-                link="#"
-                pathImage={facebookIcon}
-                alt="facebook logo icon"
+                link={item.link}
+                pathImage={item.icon}
+                alt={item.alt}
             ></SocialNetworkItem>
-            <SocialNetworkItem
-                link="#"
-                pathImage={instagramIcon}
-                alt="instagram logo icon"
-            ></SocialNetworkItem>
-            <SocialNetworkItem
-                link="#"
-                pathImage={youtubeIcon}
-                alt="youtube logo icon"
-            ></SocialNetworkItem>
-        </div>
-    );
+        );
+    });
+    return <div>{socialNetworkItems}</div>;
 };
 export default SocialNetworkList;

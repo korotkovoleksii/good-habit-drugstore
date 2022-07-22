@@ -6,7 +6,10 @@ const SocialNetworkItem = (props) => {
     return (
         <div>
             <a href={link}>
-                <img src={pathImage} alt={alt} />
+                <img
+                    src={require(`../../assets/images/${pathImage}`)}
+                    alt={alt}
+                />
             </a>
         </div>
     );

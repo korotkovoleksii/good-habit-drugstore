@@ -1,15 +1,28 @@
 import './header-info.css';
+import { useEffect, useState } from 'react';
 
 const HeaderInfo = () => {
+    const [phone, setPhone] = useState('');
+    const [workHours, setWorkHours] = useState('');
+
+    useEffect(() => {
+        const domain = process.env.REACT_APP_DOMAIN;
+        fetch(`${domain}/header-info`)
+            .then((response) => response.json())
+            .then((data) => {
+                setPhone(data.phone);
+                setWorkHours(data['work-hours']);
+            });
+    }, []);
     return (
         <div>
             <section>
                 <p>Phone:</p>
-                <a href="tel:+12345678900">+1(234)5678900</a>
+                <a href={`tel:+${phone}`}>{phone}</a>
             </section>
             <section>
                 <p>Working Hours:</p>
-                <p>we are open 24/7</p>
+                <p>{workHours}</p>
             </section>
         </div>
     );
