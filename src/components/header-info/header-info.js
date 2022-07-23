@@ -15,14 +15,16 @@ const HeaderInfo = () => {
             });
     }, []);
     return (
-        <div>
-            <section>
-                <p>Phone:</p>
-                <a href={`tel:+${phone}`}>{phone}</a>
+        <div className="header-info">
+            <section className="header-info-section">
+                <p className="title">Phone:</p>
+                <a className="description" href={`tel:+${phone}`}>
+                    {phone}
+                </a>
             </section>
-            <section>
-                <p>Working Hours:</p>
-                <p>{workHours}</p>
+            <section className="header-info-section">
+                <p className="title">Working Hours:</p>
+                <p className="description">{workHours}</p>
             </section>
         </div>
     );

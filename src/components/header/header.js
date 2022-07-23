@@ -8,11 +8,19 @@ import './header.css';
 const Header = () => {
     return (
         <div>
-            <HeaderInfo></HeaderInfo>
-            <SocialNetworkList></SocialNetworkList>
-            <SelectLanguage></SelectLanguage>
-            <NavigationLinksList></NavigationLinksList>
-            <Logo></Logo>;
+            <div className="header-top-bg ">
+                <div className="header-top container">
+                    <HeaderInfo></HeaderInfo>
+                    <section className="social-network-language">
+                        <SocialNetworkList></SocialNetworkList>
+                        <SelectLanguage></SelectLanguage>
+                    </section>
+                </div>
+            </div>
+
+            <div>
+                <Logo></Logo>;<NavigationLinksList></NavigationLinksList>
+            </div>
         </div>
     );
 };

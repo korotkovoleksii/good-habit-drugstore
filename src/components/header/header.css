@@ -1,0 +1,22 @@
+.header-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-network-language {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 190px;
+}
+.header-top-bg {
+    height: 50px;
+    background-color: #f5f6fa;
+}
+.container {
+    max-width: 1175px;
+    margin: 0 auto;
+}

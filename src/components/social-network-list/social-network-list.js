@@ -12,16 +12,18 @@ const SocialNetworkList = () => {
                 setArrSocialNetwork(data);
             });
     }, []);
-    console.log(arrSocialNetwork);
+
     const socialNetworkItems = arrSocialNetwork.map((item) => {
         return (
             <SocialNetworkItem
+                key={item.id}
                 link={item.link}
                 pathImage={item.icon}
                 alt={item.alt}
-            ></SocialNetworkItem>
+            />
         );
     });
-    return <div>{socialNetworkItems}</div>;
+
+    return <div className="social-network-list">{socialNetworkItems}</div>;
 };
 export default SocialNetworkList;
