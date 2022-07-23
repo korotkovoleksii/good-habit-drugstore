@@ -20,3 +20,10 @@
     max-width: 1175px;
     margin: 0 auto;
 }
+.header-bottom {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

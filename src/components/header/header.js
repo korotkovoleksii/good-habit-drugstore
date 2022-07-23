@@ -18,8 +18,9 @@ const Header = () => {
                 </div>
             </div>
 
-            <div>
-                <Logo></Logo>;<NavigationLinksList></NavigationLinksList>
+            <div className=" header-bottom container">
+                <Logo link="#"></Logo>
+                <NavigationLinksList></NavigationLinksList>
             </div>
         </div>
     );
