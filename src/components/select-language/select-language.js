@@ -1,5 +1,5 @@
 import englishLandIcon from '../../assets/images/english-lang-icon.png';
-import downArow from '../../assets/images/down-arrow-svgrepo-com.svg';
+import downArrow from '../../assets/images/down-arrow-svgrepo-com.svg';
 import './select-language.css';
 
 const SelectLanguage = () => {
@@ -11,7 +11,7 @@ const SelectLanguage = () => {
                 alt="english language icon"
             />
             <p className="title-language">EN</p>
-            <img className="icon-select" src={downArow} alt="" />
+            <img className="icon-select" src={downArrow} alt="" />
         </div>
     );
 };

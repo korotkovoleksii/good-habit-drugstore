@@ -1,6 +1,7 @@
 import './social-network-list.css';
 import SocialNetworkItem from '../social-network-item/social-network-item';
 import { useState, useEffect } from 'react';
+
 const SocialNetworkList = () => {
     const [arrSocialNetwork, setArrSocialNetwork] = useState([]);
 

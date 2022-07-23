@@ -1,4 +1,5 @@
 import './navigation-link.css';
+import PropTypes from 'prop-types';
 
 const NavigationLink = (props) => {
     const { title, link } = props;
@@ -8,4 +9,10 @@ const NavigationLink = (props) => {
         </a>
     );
 };
+
+NavigationLink.PropTypes = {
+    title: PropTypes.string,
+    link: PropTypes.string
+};
+
 export default NavigationLink;

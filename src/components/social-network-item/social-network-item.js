@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './social-network-item.css';
 
 const SocialNetworkItem = (props) => {
@@ -16,4 +17,9 @@ const SocialNetworkItem = (props) => {
     );
 };
 
+SocialNetworkItem.PropTypes = {
+    link: PropTypes.string,
+    pathImage: PropTypes.string,
+    alt: PropTypes.string
+};
 export default SocialNetworkItem;
