@@ -19,7 +19,7 @@ const SocialNetworkItem = (props) => {
 
 SocialNetworkItem.PropTypes = {
     link: PropTypes.string,
-    pathImage: PropTypes.string,
+    nameImage: PropTypes.string,
     alt: PropTypes.string
 };
 export default SocialNetworkItem;
