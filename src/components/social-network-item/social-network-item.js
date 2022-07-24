@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import './social-network-item.css';
 
 const SocialNetworkItem = (props) => {
-    const { link, pathImage, alt } = props;
+    const { link, nameImage, alt } = props;
 
     return (
         <div>
             <a href={link}>
                 <img
                     className="icon"
-                    src={require(`../../assets/images/${pathImage}`)}
+                    src={require(`../../assets/images/${nameImage}`)}
                     alt={alt}
                 />
             </a>

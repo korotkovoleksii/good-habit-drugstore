@@ -19,7 +19,7 @@ const SocialNetworkList = () => {
             <SocialNetworkItem
                 key={item.id}
                 link={item.link}
-                pathImage={item.icon}
+                nameImage={item.icon}
                 alt={item.alt}
             />
         );
