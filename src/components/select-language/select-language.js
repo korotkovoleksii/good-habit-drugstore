@@ -11,7 +11,11 @@ const SelectLanguage = () => {
                 alt="english language icon"
             />
             <p className="title-language">EN</p>
-            <img className="icon-select" src={downArrow} alt="" />
+            <img
+                className="icon-select"
+                src={downArrow}
+                alt="down arrow for select"
+            />
         </div>
     );
 };
