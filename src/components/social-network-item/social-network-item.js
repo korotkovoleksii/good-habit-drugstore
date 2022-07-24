@@ -17,7 +17,7 @@ const SocialNetworkItem = (props) => {
     );
 };
 
-SocialNetworkItem.PropTypes = {
+SocialNetworkItem.propTypes = {
     link: PropTypes.string,
     nameImage: PropTypes.string,
     alt: PropTypes.string

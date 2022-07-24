@@ -11,7 +11,7 @@ const Logo = (props) => {
     );
 };
 
-Logo.PropTypes = {
+Logo.propTypes = {
     link: PropTypes.string
 };
 export default Logo;

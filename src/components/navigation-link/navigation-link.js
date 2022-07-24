@@ -10,7 +10,7 @@ const NavigationLink = (props) => {
     );
 };
 
-NavigationLink.PropTypes = {
+NavigationLink.propTypes = {
     title: PropTypes.string,
     link: PropTypes.string
 };
