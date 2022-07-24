@@ -10,6 +10,7 @@ const HeaderInfo = () => {
         fetch(`${domain}/header-info`)
             .then((response) => response.json())
             .then((data) => {
+                console.log(data);
                 setPhone(data.phone);
                 setWorkHours(data['work-hours']);
             });
