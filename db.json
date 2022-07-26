@@ -48,5 +48,23 @@
             "imageName": "spain-lang-icon.png",
             "alt": "spain language icon"
         }
-    ]
+    ],
+    "ad-block": {
+        "main": {
+            "id": 1,
+            "title": "All Products for Your Health",
+            "description": "High-quality vitamins and dietary supplements for children, men, and women.",
+            "image": "main-ad-img.webp",
+            "titleBnt": "Shop Now",
+            "link": "#",
+            "style": {
+                "button": {
+                    "background-color": "#EF6500"
+                },
+                "ad-block": {
+                    "background-color": "#F5F7FB"
+                }
+            }
+        }
+    }
 }

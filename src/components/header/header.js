@@ -19,9 +19,11 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className=" header-bottom container">
-                <Logo link="#"></Logo>
-                <NavigationLinksList></NavigationLinksList>
+            <div className="container ">
+                <div className="header-bottom">
+                    <Logo link="#"></Logo>
+                    <NavigationLinksList></NavigationLinksList>
+                </div>
             </div>
         </div>
     );
