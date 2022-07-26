@@ -1,0 +1,52 @@
+{
+    "header-info": {
+        "phone": "6666666666",
+        "work-hours": "we are open 24/7"
+    },
+    "social-network": [
+        {
+            "id": 1,
+            "link": "#",
+            "icon": "facebook-icon.png",
+            "alt": "facebook logo icon"
+        },
+        {
+            "id": 2,
+            "link": "#",
+            "icon": "instagram-icon.png",
+            "alt": "instagram logo icon"
+        },
+        {
+            "id": 3,
+            "link": "#",
+            "icon": "youtube-icon.png",
+            "alt": "youtube logo icon"
+        }
+    ],
+    "navigation-link": [
+        { "id": 1, "title": "Products", "link": "#" },
+        { "id": 2, "title": "About Us", "link": "#" },
+        { "id": 3, "title": "Best Deals", "link": "#" },
+        { "id": 4, "title": "latest News", "link": "#" }
+    ],
+    "language": [
+        {
+            "id": 1,
+            "title": "EN",
+            "imageName": "english-lang-icon.png",
+            "alt": "english language icon"
+        },
+        {
+            "id": 2,
+            "title": "FR",
+            "imageName": "french-lang-icon.png",
+            "alt": "french language icon"
+        },
+        {
+            "id": 3,
+            "title": "ES",
+            "imageName": "spain-lang-icon.png",
+            "alt": "spain language icon"
+        }
+    ]
+}
