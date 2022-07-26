@@ -28,5 +28,25 @@
         { "id": 2, "title": "About Us", "link": "#" },
         { "id": 3, "title": "Best Deals", "link": "#" },
         { "id": 4, "title": "latest News", "link": "#" }
+    ],
+    "language": [
+        {
+            "id": 1,
+            "title": "EN",
+            "imageName": "english-lang-icon.png",
+            "alt": "english language icon"
+        },
+        {
+            "id": 2,
+            "title": "FR",
+            "imageName": "french-lang-icon.png",
+            "alt": "french language icon"
+        },
+        {
+            "id": 3,
+            "title": "ES",
+            "imageName": "spain-lang-icon.png",
+            "alt": "spain language icon"
+        }
     ]
 }

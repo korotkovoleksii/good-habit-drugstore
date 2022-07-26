@@ -2,7 +2,8 @@ import HeaderInfo from '../header-info/header-info';
 import Logo from '../logo/logo';
 import SocialNetworkList from '../social-network-list/social-network-list';
 import NavigationLinksList from '../navigation-links-list/navigation-links-list';
-import SelectLanguage from '../select-language/select-language';
+
+import Dropdown from '../dropdown/dropdown';
 import './header.css';
 
 const Header = () => {
@@ -13,7 +14,7 @@ const Header = () => {
                     <HeaderInfo></HeaderInfo>
                     <section className="social-network-language">
                         <SocialNetworkList></SocialNetworkList>
-                        <SelectLanguage></SelectLanguage>
+                        <Dropdown></Dropdown>
                     </section>
                 </div>
             </div>
