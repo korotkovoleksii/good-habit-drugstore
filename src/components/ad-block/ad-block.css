@@ -1,0 +1,40 @@
+.ad-block {
+    display: flex;
+    background-color: #f5f7fb;
+}
+.ad-block-info {
+    margin-left: 50px;
+}
+.ad-block-title {
+    margin-top: 110px;
+    font-size: 58px;
+    font-weight: 900;
+    color: #505f6c;
+}
+
+.ad-block-description {
+    margin-top: 55px;
+    font-size: 19px;
+    line-height: 1.5;
+    color: #9a9a9a;
+}
+
+.ad-block-img {
+    height: 538px;
+}
+.ad-block-btn {
+    border: none;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 18px 40px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 16px;
+    background-color: aqua;
+    text-decoration: none;
+    display: inline-block;
+}
+.ad-block-btn:hover {
+    transition: 0.5s;
+    background-color: #4e72d0;
+}
