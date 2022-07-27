@@ -48,5 +48,31 @@
             "imageName": "spain-lang-icon.png",
             "alt": "spain language icon"
         }
+    ],
+    "features": [
+        {
+            "id": 1,
+            "title": "Fast & Free Shipping",
+            "description": "On order over $90",
+            "imageName": "fast-and-free-shipping.svg"
+        },
+        {
+            "id": 2,
+            "title": "Secure Payments",
+            "description": "100% payment protection",
+            "imageName": "secure-payments.svg"
+        },
+        {
+            "id": 3,
+            "title": "Online Support",
+            "description": "Contact us 24 hours a day",
+            "imageName": "online-support.svg"
+        },
+        {
+            "id": 4,
+            "title": "Easy Return",
+            "description": "Simple returns policy",
+            "imageName": "easy-return.svg"
+        }
     ]
 }
