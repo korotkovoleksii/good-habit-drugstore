@@ -35,9 +35,14 @@ const FeatureList = () => {
 
     return (
         <>
-            {!error && isLoad && showFeatures.length >= 3 && (
-                <div className="feature-list"> {showFeatures} </div>
-            )}
+            {!error &&
+                isLoad &&
+                showFeatures.length <= 4 &&
+                showFeatures.length >= 3 && (
+                    <div className="feature-list" data-testid="feature">
+                        {showFeatures}
+                    </div>
+                )}
         </>
     );
 };
