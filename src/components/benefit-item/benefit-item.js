@@ -22,7 +22,7 @@ BenefitItem.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     alt: PropTypes.string,
-    nameClass: PropTypes.object
+    nameClass: PropTypes.string
 };
 
 export default BenefitItem;
