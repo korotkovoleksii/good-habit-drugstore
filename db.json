@@ -59,7 +59,7 @@
             "link": "#",
             "style": {
                 "button": {
-                    "background-color": "#EF6500"
+                    "class": "ad-block-btn-orange"
                 },
                 "ad-block": {
                     "background-color": "#F5F7FB"
