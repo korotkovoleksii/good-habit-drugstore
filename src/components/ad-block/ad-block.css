@@ -2,6 +2,8 @@
     display: flex;
     background-color: #f5f7fb;
     flex-direction: row;
+    flex: 1 0 100%;
+    position: relative;
 }
 .row-reverse {
     flex-direction: row-reverse;

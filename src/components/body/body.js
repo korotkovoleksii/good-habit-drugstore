@@ -4,7 +4,7 @@ import FeatureList from '../features-list/features-list';
 import Benefits from '../benefits/benefits';
 const Body = () => {
     return (
-        <div className="container body">
+        <div className="body">
             <MainAdBlock></MainAdBlock>
             <FeatureList></FeatureList>
             <Benefits></Benefits>

@@ -55,7 +55,7 @@
             "title": "All Products for Your Health",
             "description": "High-quality vitamins and dietary supplements for children, men, and women.",
             "image": "main-ad-img.webp",
-            "titleBnt": "Shop Now",
+            "titleBtn": "Shop Now",
             "link": "#",
             "isRight": false,
             "style": {
@@ -66,7 +66,60 @@
                     "background-color": "#F5F7FB"
                 }
             }
-        }
+        },
+        "slider": [
+            {
+                "id": 123123,
+                "title": "All Products for Your Health",
+                "description": "High-quality vitamins and dietary supplements for children, men, and women.",
+                "image": "main-ad-img.webp",
+                "titleBtn": "Shop Now",
+                "link": "#",
+                "isRight": false,
+                "style": {
+                    "button": {
+                        "class": "ad-block-btn-orange"
+                    },
+                    "ad-block": {
+                        "background-color": "#F5F7FB"
+                    }
+                }
+            },
+            {
+                "id": 123124123,
+                "title": "All Products for Your Health",
+                "description": "High-quality vitamins and dietary supplements for children, men, and women.",
+                "image": "main-ad-img.webp",
+                "titleBtn": "Shop Now",
+                "link": "#",
+                "isRight": false,
+                "style": {
+                    "button": {
+                        "class": "ad-block-btn-orange"
+                    },
+                    "ad-block": {
+                        "background-color": "#F5F7FB"
+                    }
+                }
+            },
+            {
+                "id": 34123421352,
+                "title": "All Products for Your Health",
+                "description": "High-quality vitamins and dietary supplements for children, men, and women.",
+                "image": "main-ad-img.webp",
+                "titleBtn": "Shop Now",
+                "link": "#",
+                "isRight": false,
+                "style": {
+                    "button": {
+                        "class": "ad-block-btn-orange"
+                    },
+                    "ad-block": {
+                        "background-color": "#F5F7FB"
+                    }
+                }
+            }
+        ]
     },
     "features": [
         {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const AdBlock = (props) => {
     const { title, description, btnText, image, style, isRight } = props;
-    console.log(isRight);
+
     const classAdBlock = isRight ? 'ad-block row-reverse' : 'ad-block';
     return (
         <div className={classAdBlock}>
