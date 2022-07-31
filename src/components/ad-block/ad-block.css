@@ -1,6 +1,10 @@
 .ad-block {
     display: flex;
     background-color: #f5f7fb;
+    flex-direction: row;
+}
+.row-reverse {
+    flex-direction: row-reverse;
 }
 .ad-block-info {
     margin-left: 50px;

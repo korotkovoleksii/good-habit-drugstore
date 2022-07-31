@@ -23,6 +23,7 @@ const MainAdBlock = () => {
                     btnText={adBlockInfo.titleBnt}
                     image={adBlockInfo.image}
                     style={adBlockInfo.style}
+                    isRight={adBlockInfo.isRight}
                 ></AdBlock>
             )}
         </div>

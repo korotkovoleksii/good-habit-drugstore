@@ -57,6 +57,7 @@
             "image": "main-ad-img.webp",
             "titleBnt": "Shop Now",
             "link": "#",
+            "isRight": false,
             "style": {
                 "button": {
                     "class": "ad-block-btn-orange"

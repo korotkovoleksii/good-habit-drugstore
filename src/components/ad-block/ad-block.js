@@ -2,10 +2,11 @@ import './ad-block.css';
 import PropTypes from 'prop-types';
 
 const AdBlock = (props) => {
-    const { title, description, btnText, image, style } = props;
-
+    const { title, description, btnText, image, style, isRight } = props;
+    console.log(isRight);
+    const classAdBlock = isRight ? 'ad-block row-reverse' : 'ad-block';
     return (
-        <div className="ad-block">
+        <div className={classAdBlock}>
             <div className="ad-block-info">
                 <h2 className="ad-block-title">{title}</h2>
                 <p className="ad-block-description">{description}</p>
