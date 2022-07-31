@@ -22,7 +22,7 @@ const MainAdBlock = () => {
                     description={adBlockInfo.description}
                     btnText={adBlockInfo.titleBnt}
                     image={adBlockInfo.image}
-                    styleBtn={adBlockInfo.style.button}
+                    style={adBlockInfo.style}
                 ></AdBlock>
             )}
         </div>
