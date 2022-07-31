@@ -1,6 +1,7 @@
 // import AdBlock from '../ad-block/ad-block';
 import { useState, useEffect } from 'react';
-import Slider from '../slider/slider';
+// import Slider from '../slider/slider';
+import AdBlockManager from '../ad-block-manager/ad-block-manager';
 
 const MainAdBlock = () => {
     const [adBlockInfo, setAdBlockInfo] = useState([]);
@@ -11,14 +12,15 @@ const MainAdBlock = () => {
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
-                setAdBlockInfo(data['slider']);
+                setAdBlockInfo(data['main']);
                 setIsLoad(true);
             });
     }, []);
     return (
         <div>
             {isLoad && (
-                <Slider items={adBlockInfo}></Slider>
+                <AdBlockManager adData={adBlockInfo}></AdBlockManager>
+                // <Slider items={adBlockInfo}></Slider>
                 // <AdBlock
                 //     title={adBlockInfo.title}
                 //     description={adBlockInfo.description}
