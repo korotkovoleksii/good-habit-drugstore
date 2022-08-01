@@ -25,6 +25,9 @@
     color: #9a9a9a;
 }
 
+.ad-block-fast-delivery {
+    background-color: #fafbf7;
+}
 .ad-block-img {
     height: 538px;
 }
@@ -46,4 +49,7 @@
 }
 .ad-block-btn-orange {
     background-color: #ef6500;
+}
+.ad-block-btn-green {
+    background-color: #5bc199;
 }

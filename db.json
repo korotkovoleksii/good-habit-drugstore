@@ -67,6 +67,23 @@
                 }
             }
         },
+        "ad-block-fast-delivery": {
+            "id": 2,
+            "title": "Select a Product and Buy It Now",
+            "description": "We will ship your order the same day. Delivery takes 2-3 days depending on your state.",
+            "image": "drugstore-worker.png",
+            "titleBtn": "Shop Now",
+            "link": "#",
+            "isRight": false,
+            "style": {
+                "button": {
+                    "class": "ad-block-btn-green"
+                },
+                "ad-block": {
+                    "class": "ad-block-fast-delivery"
+                }
+            }
+        },
         "slider": [
             {
                 "id": 123123,
