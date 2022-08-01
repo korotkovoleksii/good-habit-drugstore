@@ -1,8 +1,8 @@
 import './ad-block.css';
 import PropTypes from 'prop-types';
-
+import Button from '../button/button';
 const AdBlock = (props) => {
-    const { title, description, btnText, image, style, isRight } = props;
+    const { title, description, btnText, image, style, isRight, link } = props;
 
     let classAdBlock = `container ad-block ${style['ad-block'].class}`;
 
@@ -12,9 +12,11 @@ const AdBlock = (props) => {
             <div className="ad-block-info">
                 <h2 className="ad-block-title">{title}</h2>
                 <p className="ad-block-description">{description}</p>
-                <a className={`ad-block-btn ${style.button.class}`} href="#">
-                    {btnText}
-                </a>
+                <Button
+                    title={btnText}
+                    style={style.button}
+                    link={link}
+                ></Button>
             </div>
             <img
                 className="ad-block-img"
