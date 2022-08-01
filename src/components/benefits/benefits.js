@@ -37,7 +37,7 @@ const Benefits = () => {
                 isLoad &&
                 showBenefits.length <= 3 &&
                 showBenefits.length > 1 && (
-                    <div className="benefits" data-testid="benefits">
+                    <div className="container benefits" data-testid="benefits">
                         {showBenefits}
                     </div>
                 )}

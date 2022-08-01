@@ -55,8 +55,9 @@
             "title": "All Products for Your Health",
             "description": "High-quality vitamins and dietary supplements for children, men, and women.",
             "image": "main-ad-img.webp",
-            "titleBnt": "Shop Now",
+            "titleBtn": "Shop Now",
             "link": "#",
+            "isRight": false,
             "style": {
                 "button": {
                     "class": "ad-block-btn-orange"
@@ -65,7 +66,77 @@
                     "background-color": "#F5F7FB"
                 }
             }
-        }
+        },
+        "ad-block-fast-delivery": {
+            "id": 2,
+            "title": "Select a Product and Buy It Now",
+            "description": "We will ship your order the same day. Delivery takes 2-3 days depending on your state.",
+            "image": "drugstore-worker.png",
+            "titleBtn": "Shop Now",
+            "link": "#",
+            "isRight": false,
+            "style": {
+                "button": {
+                    "class": "ad-block-btn-green"
+                },
+                "ad-block": {
+                    "class": "ad-block-fast-delivery"
+                }
+            }
+        },
+        "slider": [
+            {
+                "id": 123123,
+                "title": "All Products for Your Health",
+                "description": "High-quality vitamins and dietary supplements for children, men, and women.",
+                "image": "main-ad-img.webp",
+                "titleBtn": "Shop Now",
+                "link": "#",
+                "isRight": false,
+                "style": {
+                    "button": {
+                        "class": "ad-block-btn-orange"
+                    },
+                    "ad-block": {
+                        "background-color": "#F5F7FB"
+                    }
+                }
+            },
+            {
+                "id": 123124123,
+                "title": "All Products for Your Health",
+                "description": "High-quality vitamins and dietary supplements for children, men, and women.",
+                "image": "main-ad-img.webp",
+                "titleBtn": "Shop Now",
+                "link": "#",
+                "isRight": false,
+                "style": {
+                    "button": {
+                        "class": "ad-block-btn-orange"
+                    },
+                    "ad-block": {
+                        "background-color": "#F5F7FB"
+                    }
+                }
+            },
+            {
+                "id": 34123421352,
+                "title": "All Products for Your Health",
+                "description": "High-quality vitamins and dietary supplements for children, men, and women.",
+                "image": "main-ad-img.webp",
+                "titleBtn": "Shop Now",
+                "link": "#",
+                "isRight": false,
+                "style": {
+                    "button": {
+                        "class": "ad-block-btn-orange"
+                    },
+                    "ad-block": {
+                        "background-color": "#F5F7FB"
+                    }
+                }
+            }
+        ]
     },
     "features": [
         {

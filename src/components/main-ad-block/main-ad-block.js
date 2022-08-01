@@ -1,8 +1,10 @@
-import AdBlock from '../ad-block/ad-block';
+// import AdBlock from '../ad-block/ad-block';
 import { useState, useEffect } from 'react';
+// import Slider from '../slider/slider';
+import AdBlockManager from '../ad-block-manager/ad-block-manager';
 
 const MainAdBlock = () => {
-    const [adBlockInfo, setAdBlockInfo] = useState({});
+    const [adBlockInfo, setAdBlockInfo] = useState([]);
     const [isLoad, setIsLoad] = useState(false);
     useEffect(() => {
         const domain = process.env.REACT_APP_DOMAIN;
@@ -17,13 +19,16 @@ const MainAdBlock = () => {
     return (
         <div>
             {isLoad && (
-                <AdBlock
-                    title={adBlockInfo.title}
-                    description={adBlockInfo.description}
-                    btnText={adBlockInfo.titleBnt}
-                    image={adBlockInfo.image}
-                    style={adBlockInfo.style}
-                ></AdBlock>
+                <AdBlockManager adData={adBlockInfo}></AdBlockManager>
+                // <Slider items={adBlockInfo}></Slider>
+                // <AdBlock
+                //     title={adBlockInfo.title}
+                //     description={adBlockInfo.description}
+                //     btnText={adBlockInfo.titleBnt}
+                //     image={adBlockInfo.image}
+                //     style={adBlockInfo.style}
+                //     isRight={adBlockInfo.isRight}
+                // ></AdBlock>
             )}
         </div>
     );

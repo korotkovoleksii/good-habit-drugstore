@@ -1,6 +1,12 @@
 .ad-block {
     display: flex;
     background-color: #f5f7fb;
+    flex-direction: row;
+    flex: 1 0 100%;
+    position: relative;
+}
+.row-reverse {
+    flex-direction: row-reverse;
 }
 .ad-block-info {
     margin-left: 50px;
@@ -19,6 +25,9 @@
     color: #9a9a9a;
 }
 
+.ad-block-fast-delivery {
+    background-color: #fafbf7;
+}
 .ad-block-img {
     height: 538px;
 }
@@ -40,4 +49,7 @@
 }
 .ad-block-btn-orange {
     background-color: #ef6500;
+}
+.ad-block-btn-green {
+    background-color: #5bc199;
 }

@@ -13,7 +13,6 @@ const Dropdown = () => {
         fetch(`${domain}/language`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 setListLanguage(data);
                 setChoiceLanguage(data[0]);
                 setIsLoad(true);
@@ -38,7 +37,6 @@ const Dropdown = () => {
     );
 
     const viewListLanguage = listLanguage.map((item) => {
-        console.log(item);
         return (
             <div key={item.id} className="dropdown-item">
                 <div>

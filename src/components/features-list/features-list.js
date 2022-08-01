@@ -39,7 +39,10 @@ const FeatureList = () => {
                 isLoad &&
                 showFeatures.length <= 4 &&
                 showFeatures.length >= 3 && (
-                    <div className="feature-list" data-testid="feature">
+                    <div
+                        className="container feature-list"
+                        data-testid="feature"
+                    >
                         {showFeatures}
                     </div>
                 )}
