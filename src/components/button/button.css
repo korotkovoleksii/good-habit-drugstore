@@ -9,6 +9,7 @@
     background-color: #ef6500;
     text-decoration: none;
     display: inline-block;
+    text-align: center;
 }
 .ad-block-btn:hover {
     transition: 0.5s;
