@@ -62,11 +62,10 @@
                 "button": {
                     "class": "ad-block-btn-orange"
                 },
-                "ad-block": {
-                    "background-color": "#F5F7FB"
-                }
+                "ad-block": {}
             }
         },
+
         "ad-block-fast-delivery": {
             "id": 2,
             "title": "Select a Product and Buy It Now",
