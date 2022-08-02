@@ -62,11 +62,10 @@
                 "button": {
                     "class": "ad-block-btn-orange"
                 },
-                "ad-block": {
-                    "background-color": "#F5F7FB"
-                }
+                "ad-block": {}
             }
         },
+
         "ad-block-fast-delivery": {
             "id": 2,
             "title": "Select a Product and Buy It Now",
@@ -193,5 +192,177 @@
             "alt": "like",
             "nameClass": "benefit-item-yellow"
         }
-    ]
+    ],
+    "tab": {
+        "id": 1,
+        "title": "Products",
+        "description": "We have everything you may need for your well-being.",
+        "data": [
+            {
+                "category": "Herbal Products",
+                "items": [
+                    {
+                        "id": 1,
+                        "image": "drops.jpeg",
+                        "title": "Pure Rosehip Seed Oil, 1 oz (30 ml)",
+                        "button-title": "Buy",
+                        "price": "5,00USD"
+                    },
+                    {
+                        "id": 2,
+                        "image": "drops.jpeg",
+                        "title": "Elderberry Syrup, 7.8 fl oz (230 ml)",
+                        "button-title": "Buy",
+                        "price": "10,00USD"
+                    },
+                    {
+                        "id": 3,
+                        "image": "drops.jpeg",
+                        "title": "Cordyceps CS-4 Strain, 60 capsules",
+                        "button-title": "Buy",
+                        "price": "15,00USD"
+                    },
+                    {
+                        "id": 4,
+                        "image": "drops.jpeg",
+                        "title": "Cranberry Plus, 60 tablets",
+                        "button-title": "Buy",
+                        "price": "20,00USD"
+                    }
+                ]
+            },
+            {
+                "category": "Supplements",
+                "items": [
+                    {
+                        "id": 1,
+                        "image": "drops.jpeg",
+                        "title": "Hydrolyzed Collagen + Hyaluronic Acid + Vitamin C, 7.26 oz",
+                        "button-title": "Buy",
+                        "price": "5,00USD"
+                    },
+                    {
+                        "id": 2,
+                        "image": "drops.jpeg",
+                        "title": "Immune 4, Immune System Support, 60 capsules",
+                        "button-title": "Buy",
+                        "price": "10,00USD"
+                    },
+                    {
+                        "id": 3,
+                        "image": "drops.jpeg",
+                        "title": "Strawberry Soothing Syrup, Berry Flavored, 4 fl oz (120 ml)",
+                        "button-title": "Buy",
+                        "price": "20,00USD"
+                    },
+                    {
+                        "id": 4,
+                        "image": "drops.jpeg",
+                        "title": "Digestive Enzymes, Broad Spectrum, 90 capsules",
+                        "button-title": "Buy",
+                        "price": "5,00USD"
+                    }
+                ]
+            },
+            {
+                "category": "Sports",
+                "items": [
+                    {
+                        "id": 1,
+                        "image": "drops.jpeg",
+                        "title": "Branched-Chain Amino Acids, 240 capsules",
+                        "button-title": "Buy",
+                        "price": "5,00USD"
+                    },
+                    {
+                        "id": 2,
+                        "image": "drops.jpeg",
+                        "title": "L-Carnitine, 3000, Berry, 16 fl oz (473 ml)",
+                        "button-title": "Buy",
+                        "price": "15,00USD"
+                    },
+                    {
+                        "id": 3,
+                        "image": "drops.jpeg",
+                        "title": "Ionic Minerals, Electrolytes, Liquid Concentrate, 2 oz (60 ml)",
+                        "button-title": "Buy",
+                        "price": "10,00USD"
+                    },
+                    {
+                        "id": 4,
+                        "image": "drops.jpeg",
+                        "title": "Micronized Creatine Capsules, 2.5 g, 200 capsules",
+                        "button-title": "Buy",
+                        "price": "20,00USD"
+                    }
+                ]
+            },
+            {
+                "category": "Probiotics",
+                "items": [
+                    {
+                        "id": 1,
+                        "image": "drops.jpeg",
+                        "title": "Ultimate Probiotic, Senior’s, 35 Billion CFU, 30 capsules",
+                        "button-title": "Buy",
+                        "price": "20,00USD"
+                    },
+                    {
+                        "id": 2,
+                        "image": "drops.jpeg",
+                        "title": "LactoBif Probiotics, 5 Billion CFU, 60 capsules",
+                        "button-title": "Buy",
+                        "price": "5,00USD"
+                    },
+                    {
+                        "id": 3,
+                        "image": "drops.jpeg",
+                        "title": "Acidophilus Probiotic Blend, 150 capsules",
+                        "button-title": "Buy",
+                        "price": "15,00USD"
+                    },
+                    {
+                        "id": 4,
+                        "image": "drops.jpeg",
+                        "title": "Probiotic-10, 50 Billion, 50 capsules",
+                        "button-title": "Buy",
+                        "price": "20,00USD"
+                    }
+                ]
+            },
+            {
+                "category": "Vitamins",
+                "items": [
+                    {
+                        "id": 1,
+                        "image": "drops.jpeg",
+                        "title": "Gold C, Vitamin C, 1,000 mg, 60 capsules",
+                        "button-title": "Buy",
+                        "price": "5,00USD"
+                    },
+                    {
+                        "id": 2,
+                        "image": "drops.jpeg",
+                        "title": "Vitamin D3, 125 mcg (5,000 IU), 90 softgels",
+                        "button-title": "Buy",
+                        "price": "5,00USD"
+                    },
+                    {
+                        "id": 3,
+                        "image": "drops.jpeg",
+                        "title": "Vitamin D3, Natural Berry Flavor, 1 fl oz (30 ml)",
+                        "button-title": "Buy",
+                        "price": "5,00USD"
+                    },
+                    {
+                        "id": 4,
+                        "image": "drops.jpeg",
+                        "title": "Vitamin D3 + K2, Soy Free, 125 mcg (5,000 IU), 60 capsules",
+                        "button-title": "Buy",
+                        "price": "5,00USD"
+                    }
+                ]
+            }
+        ]
+    }
 }
