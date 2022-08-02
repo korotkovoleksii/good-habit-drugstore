@@ -51,7 +51,7 @@
     ],
     "ad-block": {
         "main": {
-            "id": 1,
+            "id": 1125123,
             "title": "All Products for Your Health",
             "description": "High-quality vitamins and dietary supplements for children, men, and women.",
             "image": "main-ad-img.webp",
@@ -62,12 +62,14 @@
                 "button": {
                     "class": "ad-block-btn-orange"
                 },
-                "ad-block": {}
+                "ad-block": {
+                    "class": ""
+                }
             }
         },
 
         "ad-block-fast-delivery": {
-            "id": 2,
+            "id": 234,
             "title": "Select a Product and Buy It Now",
             "description": "We will ship your order the same day. Delivery takes 2-3 days depending on your state.",
             "image": "drugstore-worker.png",
@@ -85,53 +87,62 @@
         },
         "slider": [
             {
-                "id": 123123,
-                "title": "All Products for Your Health",
-                "description": "High-quality vitamins and dietary supplements for children, men, and women.",
-                "image": "main-ad-img.webp",
-                "titleBtn": "Shop Now",
+                "id": 1113,
+                "title": "Disease Prevention",
+                "description": "Our vitamins will strengthen your immune system, stimulate the immune response to various infections. With proper vitamins, you will forget about seasonal colds.",
+                "image": "desiasePrevention.jpeg",
+                "titleBtn": "Browse",
                 "link": "#",
-                "isRight": false,
+                "isRight": true,
                 "style": {
                     "button": {
                         "class": "ad-block-btn-orange"
                     },
                     "ad-block": {
-                        "background-color": "#F5F7FB"
+                        "class": "ad-block-desiase"
+                    },
+                    "title": {
+                        "class": "ad-block-slider-title"
                     }
                 }
             },
             {
-                "id": 123124123,
-                "title": "All Products for Your Health",
-                "description": "High-quality vitamins and dietary supplements for children, men, and women.",
-                "image": "main-ad-img.webp",
-                "titleBtn": "Shop Now",
+                "id": 21235234,
+                "title": "Vitamins for Hair",
+                "description": "We have a huge selection of hair products that really work. Here you will find vitamins for weak, thin, brittle hair. With the presented products, your hair will become healthy, lush and silky.",
+                "image": "vitaminForHair.jpeg",
+                "titleBtn": "Browse",
                 "link": "#",
-                "isRight": false,
+                "isRight": true,
                 "style": {
                     "button": {
                         "class": "ad-block-btn-orange"
                     },
                     "ad-block": {
-                        "background-color": "#F5F7FB"
+                        "class": "ad-block-vitamins"
+                    },
+                    "title": {
+                        "class": "ad-block-slider-title"
                     }
                 }
             },
             {
-                "id": 34123421352,
-                "title": "All Products for Your Health",
-                "description": "High-quality vitamins and dietary supplements for children, men, and women.",
-                "image": "main-ad-img.webp",
-                "titleBtn": "Shop Now",
+                "id": 314235,
+                "title": "Healthier Skin",
+                "description": "We offer products that improve the condition of your skin and fight against defects - acne, psoriatic rash, etc. Our supplements will bring  you back clean, smooth, and healthy skin.",
+                "image": "healthierSkin.jpeg",
+                "titleBtn": "Browse",
                 "link": "#",
-                "isRight": false,
+                "isRight": true,
                 "style": {
                     "button": {
                         "class": "ad-block-btn-orange"
                     },
                     "ad-block": {
-                        "background-color": "#F5F7FB"
+                        "class": "ad-block-healthier"
+                    },
+                    "title": {
+                        "class": "ad-block-slider-title"
                     }
                 }
             }

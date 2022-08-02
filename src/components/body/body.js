@@ -4,6 +4,7 @@ import FeatureList from '../features-list/features-list';
 import Benefits from '../benefits/benefits';
 import AdBlockFastDeliv from '../ad-block-fast-deliv/ad-block-fast-deliv';
 import Tabs from '../tabs/tabs';
+import AdBlockSlider from '../ad-block-slider/ad-block-slider';
 const Body = () => {
     return (
         <div className="body">
@@ -12,6 +13,7 @@ const Body = () => {
             <Benefits></Benefits>
             <AdBlockFastDeliv></AdBlockFastDeliv>
             <Tabs></Tabs>
+            <AdBlockSlider></AdBlockSlider>
         </div>
     );
 };
