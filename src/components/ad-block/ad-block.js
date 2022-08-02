@@ -5,12 +5,13 @@ const AdBlock = (props) => {
     const { title, description, btnText, image, style, isRight, link } = props;
 
     let classAdBlock = `container ad-block ${style['ad-block'].class}`;
-
+    let classTitle = `ad-block-title ${style['title']?.class}`;
     classAdBlock += isRight ? ' row-reverse' : '';
+
     return (
         <div className={classAdBlock}>
             <div className="ad-block-info">
-                <h2 className="ad-block-title">{title}</h2>
+                <h2 className={classTitle}>{title}</h2>
                 <p className="ad-block-description">{description}</p>
                 <Button
                     title={btnText}
