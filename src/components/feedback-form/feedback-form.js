@@ -11,7 +11,7 @@ const FeedBackForm = () => {
     const [department, setDepartment] = useState('');
     const [approveShare, setApproveShare] = useState(false);
     return (
-        <div>
+        <div className="feedback">
             <form
                 className="feedback-form"
                 onSubmit={() => console.log('fjsldk')}

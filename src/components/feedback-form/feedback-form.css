@@ -1,14 +1,23 @@
+.feedback {
+    height: 100%;
+    width: 100%;
+    /* display: flex;
+    flex-direction: column; */
+
+    position: absolute;
+}
 .feedback-form {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    height: 100%;
+    justify-content: space-around;
+    position: relative;
 }
 .input-text {
     background-color: #f5f6fa;
     border: 1px #e4e5ea solid;
     border-radius: 5px;
     padding: 10px 20px;
-    margin-bottom: 25px;
 }
 .form-select {
     background-color: #f5f6fa;
@@ -20,12 +29,14 @@
     height: 120px;
     resize: none;
     font-family: 'Lato';
+    /* position: absolute; */
 }
 .department-select-section {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    /* position: absolute; */
 }
 .approve-section {
     margin-top: 25px;
@@ -33,4 +44,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    /* position: relative; */
 }
+/* @media (max-height=500px) {
+    .department-select-section,
+    .feedback-text,
+    .input-text,
+    .approve-section {
+        position: absolute;
+    }
+} */
