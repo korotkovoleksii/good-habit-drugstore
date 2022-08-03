@@ -2,6 +2,7 @@ import './feedback.css';
 import feedbackImg from '../../assets/images/feedback.jpeg';
 import Button from '../button/button';
 import Modal from '../modal/modal';
+import FeedBackForm from '../feedback-form/feedback-form';
 import { useState } from 'react';
 const FeedBack = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -44,12 +45,7 @@ const FeedBack = () => {
                             onSubmit={handleSubmit}
                             onCancel={handleCancel}
                         >
-                            <p>fasdlkghkjasdgjkasdg</p>
-                            <p>fasdlkghkjasdgjkasdg</p>
-
-                            <p>fasdlkghkjasdgjkasdg</p>
-
-                            <p>fasdlkghkjasdgjkasdg</p>
+                            <FeedBackForm></FeedBackForm>
                         </Modal>
                     </div>
                     <img
