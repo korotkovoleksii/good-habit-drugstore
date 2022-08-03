@@ -31,8 +31,13 @@ const FeedBack = () => {
                             You could give complete the form after click the
                             button below and give feedback for us
                         </p>
-                        <button onClick={openModal}>Give FeedBack</button>
-                        <Button title="Give FeedBack"></Button>
+                        <Button
+                            title="Give FeedBack"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                openModal();
+                            }}
+                        ></Button>
                         <Modal
                             title="FeedBack"
                             isOpen={isOpen}

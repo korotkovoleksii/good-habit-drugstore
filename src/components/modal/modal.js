@@ -1,5 +1,5 @@
 import './modal.css';
-// import Button from '../button/button';
+import Button from '../button/button';
 import { GrClose } from 'react-icons/gr';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
@@ -30,14 +30,27 @@ const Modal = ({ title, isOpen, onCancel, onSubmit, children }) => {
                         >
                             <div className="modalHeader">
                                 <div className="modalTitle">{title}</div>
-                                <div>
+                                <div className="gr-closer" onClick={onCancel}>
                                     <GrClose />
                                 </div>
                             </div>
                             <div className="modalBody">{children}</div>
                             <div className="modalFooter">
-                                <button onClick={onCancel}>Cancel</button>
-                                <button onClick={onSubmit}>Submit</button>
+                                <Button
+                                    title="Cancel"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        onCancel();
+                                    }}
+                                ></Button>
+                                <Button
+                                    style={{ class: 'ad-block-btn-green' }}
+                                    title="Submit"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        onSubmit();
+                                    }}
+                                ></Button>
                             </div>
                         </div>
                     </div>
