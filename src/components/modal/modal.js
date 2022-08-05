@@ -2,8 +2,17 @@ import './modal.css';
 import Button from '../button/button';
 import { GrClose } from 'react-icons/gr';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-const Modal = ({ title, isOpen, onCancel, onSubmit, children }) => {
+import { useEffect, Children, isValidElement, cloneElement } from 'react';
+
+const Modal = ({
+    title,
+    isOpen,
+    onCancel,
+    onSubmit,
+    children,
+    btnTextCancel,
+    btnTextSubmit
+}) => {
     const keydownHandler = ({ key }) => {
         switch (key) {
             case 'Escape':
@@ -17,13 +26,26 @@ const Modal = ({ title, isOpen, onCancel, onSubmit, children }) => {
         document.addEventListener('keydown', keydownHandler);
         return () => document.removeEventListener('keydown', keydownHandler);
     });
+    const childrenWithProps = Children.map(children, (child) => {
+        // Checking isValidElement is the safe way and avoids a typescript
+        // error too.
+        if (isValidElement(child)) {
+            return cloneElement(child, { onCancel });
+        }
+        return child;
+    });
+
     return (
         <>
             {isOpen && (
                 <div>
                     <div onClick={onCancel} className="modalOverlay">
                         <div
-                            className="modalWindow"
+                            className={
+                                isOpen
+                                    ? 'modalWindow modal-animation-open'
+                                    : 'modalWindow modal-animation-close'
+                            }
                             onClick={(e) => {
                                 e.stopPropagation();
                             }}
@@ -34,10 +56,10 @@ const Modal = ({ title, isOpen, onCancel, onSubmit, children }) => {
                                     <GrClose />
                                 </div>
                             </div>
-                            <div className="modalBody">{children}</div>
+                            <div className="modalBody">{childrenWithProps}</div>
                             <div className="modalFooter">
                                 <Button
-                                    title="Cancel"
+                                    title={btnTextCancel}
                                     onClick={(e) => {
                                         e.preventDefault();
                                         onCancel();
@@ -45,7 +67,7 @@ const Modal = ({ title, isOpen, onCancel, onSubmit, children }) => {
                                 ></Button>
                                 <Button
                                     style={{ class: 'ad-block-btn-green' }}
-                                    title="Submit"
+                                    title={btnTextSubmit}
                                     onClick={(e) => {
                                         e.preventDefault();
                                         onSubmit();
@@ -64,7 +86,9 @@ Modal.propTypes = {
     isOpen: PropTypes.bool,
     onCancel: PropTypes.func,
     onSubmit: PropTypes.func,
-    children: PropTypes.node
+    children: PropTypes.node,
+    btnTextCancel: PropTypes.string,
+    btnTextSubmit: PropTypes.string
 };
 
 Modal.defaultProps = {
@@ -72,7 +96,9 @@ Modal.defaultProps = {
     isOpen: false,
     onCancel: () => {},
     onSubmit: () => {},
-    children: null
+    children: null,
+    btnTextCancel: 'Cancel',
+    btnTextSubmit: 'Submit'
 };
 
 export default Modal;

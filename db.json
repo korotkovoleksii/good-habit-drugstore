@@ -24,10 +24,26 @@
         }
     ],
     "navigation-link": [
-        { "id": 1, "title": "Products", "link": "#" },
-        { "id": 2, "title": "About Us", "link": "#" },
-        { "id": 3, "title": "Best Deals", "link": "#" },
-        { "id": 4, "title": "latest News", "link": "#" }
+        {
+            "id": 1,
+            "title": "Products",
+            "link": "#"
+        },
+        {
+            "id": 2,
+            "title": "About Us",
+            "link": "#"
+        },
+        {
+            "id": 3,
+            "title": "Best Deals",
+            "link": "#"
+        },
+        {
+            "id": 4,
+            "title": "latest News",
+            "link": "#"
+        }
     ],
     "language": [
         {
@@ -67,7 +83,6 @@
                 }
             }
         },
-
         "ad-block-fast-delivery": {
             "id": 234,
             "title": "Select a Product and Buy It Now",
@@ -375,5 +390,80 @@
                 ]
             }
         ]
-    }
+    },
+    "feedback-form-info": {
+        "title": "FeedBack",
+        "name-placeholder": "First name",
+        "surname-placeholder": "Last name",
+        "email-placeholder": "Email",
+        "number-phone-placeholder": "Number Phone",
+        "feedback-placeholder": "Feedback",
+        "department": ["customer department", "support department"],
+        "approve-use-data-client": "some text for user that give data for us",
+        "rating-text": "rating",
+        "text-btn-cancel": "Cancel",
+        "text-btn-submit": "Submit"
+    },
+    "feedback-list": [
+        {
+            "id": 1,
+            "name": "wwww",
+            "surname": "www",
+            "email": "w",
+            "number-phone": "ww",
+            "feedback-text": "w",
+            "department": "customer department",
+            "rating": 9
+        },
+        {
+            "id": "57c63dba-3640-4292-a4cb-62384513cda4",
+            "name": "eeee",
+            "surname": "eeee",
+            "email": "e",
+            "number-phone": "ee",
+            "feedback-text": "eeeeee",
+            "department": "customer department",
+            "rating": 3
+        },
+        {
+            "id": "4150ff89-5763-43ae-ae34-a23100951a12",
+            "name": "ttttt",
+            "surname": "ttttt",
+            "email": "t",
+            "number-phone": "tt",
+            "feedback-text": "tttt",
+            "department": "support department",
+            "rating": 3
+        },
+        {
+            "id": "2bacad88-df5b-4c6f-8ec8-637df74f94bc",
+            "name": "asdfasdf",
+            "surname": "asdfasdfsa",
+            "email": "asdfsadg",
+            "number-phone": "asdfasdf",
+            "feedback-text": "afsdfasdf",
+            "department": "support department",
+            "rating": 9
+        },
+        {
+            "id": "309860ec-ba65-46a0-8c5b-588453090998",
+            "name": "e",
+            "surname": "",
+            "email": "",
+            "number-phone": "",
+            "feedback-text": "",
+            "department": "customer department",
+            "rating": 0
+        },
+        {
+            "id": "d424ca37-6b09-4e43-a98d-890fd6a9ef77",
+            "name": "ffffffff",
+            "surname": "s",
+            "email": "xcvb",
+            "number-phone": "sdfg",
+            "feedback-text": "sdf",
+            "department": "support department",
+            "rating": 5
+        }
+    ]
 }

@@ -46,6 +46,11 @@
     justify-content: space-around;
     /* position: relative; */
 }
+.rating {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* @media (max-height=500px) {
     .department-select-section,
     .feedback-text,
