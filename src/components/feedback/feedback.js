@@ -4,6 +4,7 @@ import Button from '../button/button';
 import Modal from '../modal/modal';
 import FeedBackForm from '../feedback-form/feedback-form';
 import { useState, useEffect } from 'react';
+// import { CSSTransition } from 'react-transition-group';
 const FeedBack = () => {
     const [error, setError] = useState(null);
     const [feedbackFormData, setFeedbackFormData] = useState([]);
@@ -61,6 +62,7 @@ const FeedBack = () => {
                                     openModal();
                                 }}
                             ></Button>
+
                             <Modal
                                 title={feedbackFormData.title}
                                 isOpen={isOpen}

@@ -1,8 +1,10 @@
-import './modal.css';
 import Button from '../button/button';
 import { GrClose } from 'react-icons/gr';
 import PropTypes from 'prop-types';
 import { useEffect, Children, isValidElement, cloneElement } from 'react';
+// import Portal from '../portal/portal';
+import { CSSTransition } from 'react-transition-group';
+import './modal.css';
 
 const Modal = ({
     title,
@@ -24,7 +26,9 @@ const Modal = ({
 
     useEffect(() => {
         document.addEventListener('keydown', keydownHandler);
-        return () => document.removeEventListener('keydown', keydownHandler);
+        return () => {
+            document.removeEventListener('keydown', keydownHandler);
+        };
     });
     const childrenWithProps = Children.map(children, (child) => {
         // Checking isValidElement is the safe way and avoids a typescript
@@ -35,50 +39,55 @@ const Modal = ({
         return child;
     });
 
+    // if (!isOpen) return null;
+
     return (
-        <>
-            {isOpen && (
-                <div>
-                    <div onClick={onCancel} className="modalOverlay">
-                        <div
-                            className={
-                                isOpen
-                                    ? 'modalWindow modal-animation-open'
-                                    : 'modalWindow modal-animation-close'
-                            }
-                            onClick={(e) => {
-                                e.stopPropagation();
-                            }}
-                        >
-                            <div className="modalHeader">
-                                <div className="modalTitle">{title}</div>
-                                <div className="gr-closer" onClick={onCancel}>
-                                    <GrClose />
-                                </div>
-                            </div>
-                            <div className="modalBody">{childrenWithProps}</div>
-                            <div className="modalFooter">
-                                <Button
-                                    title={btnTextCancel}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        onCancel();
-                                    }}
-                                ></Button>
-                                <Button
-                                    style={{ class: 'ad-block-btn-green' }}
-                                    title={btnTextSubmit}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        onSubmit();
-                                    }}
-                                ></Button>
-                            </div>
+        <CSSTransition
+            in={isOpen}
+            timeout={1000}
+            classNames="modalWindow"
+            unmountOnExit
+            appear
+        >
+            {/* <Portal> */}
+            <>
+                <div
+                    className="modalWindow"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                    }}
+                >
+                    <div className="modalHeader">
+                        <div className="modalTitle">{title}</div>
+                        <div className="gr-closer" onClick={onCancel}>
+                            <GrClose />
                         </div>
                     </div>
+                    <div className="modalBody">{childrenWithProps}</div>
+                    <div className="modalFooter">
+                        <Button
+                            title={btnTextCancel}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                onCancel();
+                            }}
+                        ></Button>
+                        <Button
+                            style={{
+                                class: 'ad-block-btn-green'
+                            }}
+                            title={btnTextSubmit}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                onSubmit();
+                            }}
+                        ></Button>
+                    </div>
                 </div>
-            )}
-        </>
+                <div onClick={onCancel} className="modalOverlay" />
+            </>
+            {/* </Portal> */}
+        </CSSTransition>
     );
 };
 Modal.propTypes = {
