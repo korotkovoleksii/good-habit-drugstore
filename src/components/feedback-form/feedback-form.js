@@ -1,109 +1,239 @@
-import { useState } from 'react';
-import './feedback-form.css';
+import { useEffect, useState } from 'react';
+
 import PropTypes from 'prop-types';
 // import RatingStars from '../rating-stars/rating-stars';
 import { Rating } from 'react-simple-star-rating';
 import { v4 as uuidv4 } from 'uuid';
+import PhoneInput from 'react-phone-input-2';
 
+import 'react-phone-input-2/lib/style.css';
+import './feedback-form.css';
+const useValidation = (value, validations) => {
+    const [isEmpty, setIsEmpty] = useState(true);
+    const [minLengthErr, setMinLengthErr] = useState(false);
+    const [maxLengthErr, setMaxLengthErr] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [inputValid, setInputValid] = useState(false);
+
+    useEffect(() => {
+        for (const validation in validations) {
+            switch (validation) {
+                case 'minLength': {
+                    value.length < validations[validation]
+                        ? setMinLengthErr(true)
+                        : setMinLengthErr(false);
+                    break;
+                }
+
+                case 'maxLength': {
+                    value.length > validations[validation]
+                        ? setMaxLengthErr(true)
+                        : setMaxLengthErr(false);
+                    break;
+                }
+
+                case 'isEmpty': {
+                    value ? setIsEmpty(false) : setIsEmpty(true);
+                    break;
+                }
+
+                case 'isEmail': {
+                    const re = /@/;
+                    console.log(value);
+                    console.log(re.test(String(value).toLowerCase()));
+                    re.test(String(value).toLowerCase())
+                        ? setEmailError(false)
+                        : setEmailError(true);
+                    break;
+                }
+            }
+        }
+    }, [value]);
+    useEffect(() => {
+        if (isEmpty || minLengthErr || maxLengthErr || emailError) {
+            setInputValid(false);
+        } else {
+            setInputValid(true);
+        }
+    }, [isEmpty, minLengthErr, maxLengthErr, emailError]);
+    return {
+        isEmpty,
+        minLengthErr,
+        maxLengthErr,
+        emailError,
+        inputValid
+    };
+};
+
+const useInput = (initialValue, validations, classStyle, classStyleError) => {
+    const [value, setValue] = useState(initialValue);
+    const [isDirty, setDirty] = useState(false);
+    const valid = useValidation(value, validations);
+    const [styleInput, setStyleInput] = useState(classStyle);
+    const cheack = () => {
+        if (!valid.inputValid) {
+            setStyleInput(styleInput + ' ' + classStyleError);
+        } else {
+            setStyleInput(classStyle);
+        }
+    };
+    const onChange = (e) => {
+        setValue(e.target.value);
+        cheack();
+    };
+    const onBlur = () => {
+        console.log(isDirty);
+
+        setDirty(true);
+        cheack();
+    };
+
+    return {
+        value,
+        onChange,
+        isDirty,
+        onBlur,
+        styleInput,
+        cheack,
+        ...valid
+    };
+};
 const FeedBackForm = ({
     phderName,
     phderSurname,
     phderEmail,
-    phderNumberPhone,
+    // phderNumberPhone,
     phderFeedbackText,
     ratingLabel,
     arrDepartment,
     approveText,
     onCancel
 }) => {
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [numberPhone, setNumberPhone] = useState('');
-    const [email, setEmail] = useState('');
+    const name = useInput(
+        '',
+        { isEmpty: true, minLength: 2 },
+        'input-text',
+        'input-text-error'
+    );
+    const surname = useInput(
+        '',
+        { isEmpty: true, minLength: 2 },
+        'input-text',
+        'input-text-error'
+    );
+    const email = useInput(
+        '',
+        { isEmpty: true, isEmail: true },
+        'input-text',
+        'input-text-error'
+    );
+    const feedbackText = useInput(
+        '',
+        { isEmpty: true },
+        'feedback-text input-text',
+        'input-text-error'
+    );
 
-    const [feedbackText, setFeedbackText] = useState('');
+    // const [name, setName] = useState('');
+
+    const [numberPhone, setNumberPhone] = useState('');
+
+    // const [feedbackText, setFeedbackText] = useState('');
 
     const [department, setDepartment] = useState(arrDepartment[0]);
     const [approveShare, setApproveShare] = useState(false);
     const [rating, setRating] = useState(0);
 
     const handleSubmit = (e) => {
-        const domain = process.env.REACT_APP_DOMAIN;
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                id: uuidv4(),
-                name: name,
-                surname: surname,
-                email: email,
-                'number-phone': numberPhone,
-                'feedback-text': feedbackText,
-                department: department,
-                rating: rating
-            })
-        };
-        fetch(`${domain}/feedback-list`, requestOptions)
-            .then((response) => response.json())
-            .then((data) => console.log(data));
-        console.log(' Submit send feedback to server');
-        console.log('flshjkghaklsdjfgjksaklqqqqq');
+        if (email.inputValid) {
+            const domain = process.env.REACT_APP_DOMAIN;
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: uuidv4(),
+                    name: name.value,
+                    surname: surname.value,
+                    email: email.value,
+                    'number-phone': numberPhone,
+                    'feedback-text': feedbackText.value,
+                    department: department,
+                    rating: rating
+                })
+            };
+            fetch(`${domain}/feedback-list`, requestOptions)
+                .then((response) => response.json())
+                .then((data) => console.log(data));
+            console.log(' Submit send feedback to server');
+            console.log('flshjkghaklsdjfgjksaklqqqqq');
+            e.preventDefault();
+            onCancel();
+        }
+
+        console.log('klasjdfljkh');
+        email.cheack();
         e.preventDefault();
-        onCancel();
     };
     const handleRating = (rate) => {
         setRating(rate / 10);
-        // Some logic
     };
     return (
         <div className="feedback">
             <form className="feedback-form" onSubmit={handleSubmit}>
                 <input
-                    type="text"
-                    className="input-text"
                     placeholder={phderName}
-                    value={name}
-                    onChange={(e) => {
-                        setName(e.target.value);
-                    }}
+                    className={name.styleInput}
+                    type="text"
+                    value={name.value}
+                    onChange={(e) => name.onChange(e)}
+                    onBlur={(e) => name.onBlur(e)}
                 />
+                {/* {name.isDirty && name.minLengthErr && (
+                    <p className="error-label"> not valid{phderName}</p>
+                )} */}
 
                 <input
                     placeholder={phderSurname}
-                    className="input-text"
+                    className={surname.styleInput}
                     type="text"
-                    value={surname}
-                    onChange={(e) => {
-                        setSurname(e.target.value);
-                    }}
+                    value={surname.value}
+                    onChange={(e) => surname.onChange(e)}
+                    onBlur={(e) => surname.onBlur(e)}
                 />
 
                 <input
                     placeholder={phderEmail}
-                    className="input-text"
+                    className={email.styleInput}
                     type="text"
-                    value={email}
-                    onChange={(e) => {
-                        setEmail(e.target.value);
-                    }}
+                    value={email.value}
+                    onChange={(e) => email.onChange(e)}
+                    onBlur={(e) => email.onBlur(e)}
                 />
-                <input
-                    placeholder={phderNumberPhone}
-                    className="input-text"
-                    type="text"
-                    value={numberPhone}
-                    onChange={(e) => {
-                        setNumberPhone(e.target.value);
-                    }}
-                />
+                {email.isDirty && email.minLengthErr && (
+                    <p className="error-label"> not valid email</p>
+                )}
+
+                <section>
+                    <PhoneInput
+                        inputStyle={{
+                            width: '100%',
+                            backgroundColor: '#f5f6fa'
+                        }}
+                        country={'ua'}
+                        onlyCountries={['ua']}
+                        masks={{ ua: '(...) ..-..-..' }}
+                        value={numberPhone}
+                        onChange={(phone) => setNumberPhone(phone)}
+                    ></PhoneInput>
+                </section>
                 <textarea
-                    className="feedback-text input-text"
-                    name="description"
+                    // name="description"
                     placeholder={phderFeedbackText}
-                    value={feedbackText}
-                    onChange={(e) => {
-                        setFeedbackText(e.target.value);
-                    }}
+                    className={feedbackText.styleInput}
+                    type="text"
+                    value={feedbackText.value}
+                    onChange={(e) => feedbackText.onChange(e)}
+                    onBlur={(e) => feedbackText.onBlur(e)}
                 ></textarea>
                 <section className="department-select-section">
                     <label htmlFor="form-department-select">

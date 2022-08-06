@@ -50,12 +50,23 @@
     display: flex;
     justify-content: space-between;
 }
+.input-text-error {
+    border-color: red;
+}
+.error-label {
+    color: red;
+    font-size: 15px;
+    font-weight: 400;
+}
 
-/* @media (max-height=500px) {
-    .department-select-section,
-    .feedback-text,
-    .input-text,
-    .approve-section {
-        position: absolute;
-    }
+.qqq {
+    background-color: red;
+    width: 100%;
+}
+/* .www {
+    background-color: #f5f6fa !important;
+    width: 100% !important;
+} */
+/* .qqq input {
+    background-color: #f5f6fa;
 } */
