@@ -14,21 +14,53 @@ const useValidation = (value, validations) => {
     const [maxLengthErr, setMaxLengthErr] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [inputValid, setInputValid] = useState(false);
+    const [listErrors, setListErrors] = useState([]);
+
+    const addError = (error) => {
+        const rez = listErrors.find((item) => {
+            if (Object.keys(item)[0] === Object.keys(error)[0]) {
+                return item;
+            }
+        });
+        console.log(rez);
+        if (!rez) {
+            setListErrors([...listErrors, error]);
+        }
+    };
+    const remoteError = (keyError) => {
+        const newList = listErrors.filter((item) => {
+            if (Object.keys(item)[0] !== keyError) {
+                return item;
+            }
+        });
+        setListErrors([...newList]);
+    };
+    const getTextError = () => {
+        return listErrors.length ? Object.values(listErrors[0])[0] : '';
+    };
 
     useEffect(() => {
         for (const validation in validations) {
             switch (validation) {
                 case 'minLength': {
-                    value.length < validations[validation]
-                        ? setMinLengthErr(true)
-                        : setMinLengthErr(false);
+                    if (value.length < validations[validation]) {
+                        setMinLengthErr(true);
+                        addError({ minLength: 'not enough characters' });
+                    } else {
+                        setMinLengthErr(false);
+                        remoteError('minLength');
+                    }
+
                     break;
                 }
 
                 case 'maxLength': {
-                    value.length > validations[validation]
-                        ? setMaxLengthErr(true)
-                        : setMaxLengthErr(false);
+                    if (value.length > validations[validation]) {
+                        setMaxLengthErr(true);
+                    } else {
+                        setMaxLengthErr(false);
+                    }
+
                     break;
                 }
 
@@ -61,7 +93,9 @@ const useValidation = (value, validations) => {
         minLengthErr,
         maxLengthErr,
         emailError,
-        inputValid
+        inputValid,
+        getTextError,
+        listErrors
     };
 };
 
@@ -188,9 +222,9 @@ const FeedBackForm = ({
                     onChange={(e) => name.onChange(e)}
                     onBlur={(e) => name.onBlur(e)}
                 />
-                {/* {name.isDirty && name.minLengthErr && (
-                    <p className="error-label"> not valid{phderName}</p>
-                )} */}
+                {name.isDirty && name.minLengthErr && (
+                    <p className="error-label">{name.getTextError()}</p>
+                )}
 
                 <input
                     placeholder={phderSurname}
