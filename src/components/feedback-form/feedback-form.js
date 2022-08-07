@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 
 import PropTypes from 'prop-types';
 // import RatingStars from '../rating-stars/rating-stars';
-import { Rating } from 'react-simple-star-rating';
+// import { Rating } from 'react-simple-star-rating';
+
+import ReactStars from 'react-rating-stars-component';
 import { v4 as uuidv4 } from 'uuid';
 import PhoneInput from 'react-phone-input-2';
 
@@ -17,6 +19,7 @@ const useValidation = (value, validations) => {
     const [listErrors, setListErrors] = useState([]);
 
     const addError = (error) => {
+        console.log(listErrors);
         const rez = listErrors.find((item) => {
             if (Object.keys(item)[0] === Object.keys(error)[0]) {
                 return item;
@@ -33,6 +36,7 @@ const useValidation = (value, validations) => {
                 return item;
             }
         });
+
         setListErrors([...newList]);
     };
     const getTextError = () => {
@@ -57,24 +61,32 @@ const useValidation = (value, validations) => {
                 case 'maxLength': {
                     if (value.length > validations[validation]) {
                         setMaxLengthErr(true);
+                        addError({ maxLength: 'too much characters' });
                     } else {
                         setMaxLengthErr(false);
+                        remoteError('maxLength');
                     }
 
                     break;
                 }
-
-                case 'isEmpty': {
-                    value ? setIsEmpty(false) : setIsEmpty(true);
-                    break;
-                }
-
                 case 'isEmail': {
                     const re = /@/;
+                    if (!re.test(String(value).toLowerCase())) {
+                        setEmailError(true);
+                        addError({ isEmail: 'email not valid' });
+                    } else {
+                        setEmailError(false);
+                        remoteError('isEmail');
+                    }
 
-                    re.test(String(value).toLowerCase())
-                        ? setEmailError(false)
-                        : setEmailError(true);
+                    break;
+                }
+                case 'isEmpty': {
+                    if (value) {
+                        setIsEmpty(false);
+                    } else {
+                        setIsEmpty(true);
+                    }
                     break;
                 }
             }
@@ -103,7 +115,7 @@ const useInput = (initialValue, validations, classStyle, classStyleError) => {
     const [isDirty, setDirty] = useState(false);
     const valid = useValidation(value, validations);
     const [styleInput, setStyleInput] = useState(classStyle);
-    const cheack = () => {
+    const checkValid = () => {
         if (!valid.inputValid) {
             setStyleInput(styleInput + ' ' + classStyleError);
         } else {
@@ -111,13 +123,24 @@ const useInput = (initialValue, validations, classStyle, classStyleError) => {
         }
     };
     const onChange = (e) => {
-        setValue(e.target.value);
+        if ('checked' in e.target) {
+            setValue(e.target.checked);
+        }
+        if ('value' in e.target) {
+            setValue(e.target.value);
+        }
+
         setDirty(true);
-        cheack();
+        checkValid();
     };
     const onBlur = () => {
         setDirty(true);
-        cheack();
+        checkValid();
+    };
+    const changeRating = (r) => {
+        setValue(r);
+        setDirty(true);
+        checkValid();
     };
 
     return {
@@ -126,15 +149,18 @@ const useInput = (initialValue, validations, classStyle, classStyleError) => {
         isDirty,
         onBlur,
         styleInput,
-        cheack,
+        checkValid,
+        changeRating,
         ...valid
     };
 };
+// const useInputCheckbox = (initialValue, validatons, classStyle, classStyleError)=>{
+
+// }
 const FeedBackForm = ({
     phderName,
     phderSurname,
     phderEmail,
-    // phderNumberPhone,
     phderFeedbackText,
     ratingLabel,
     arrDepartment,
@@ -161,20 +187,28 @@ const FeedBackForm = ({
     );
     const feedbackText = useInput(
         '',
-        { isEmpty: true },
+        { isEmpty: true, minLength: 2 },
         'feedback-text input-text',
         'input-text-error'
     );
-
-    // const [name, setName] = useState('');
+    const approveShare = useInput(
+        false,
+        { isEmpty: true },
+        'some-class',
+        'input-checkbox-text-error'
+    );
+    const departmentN = useInput(
+        '',
+        { isEmpty: true },
+        'form-select',
+        'input-text-error'
+    );
+    const ratingN = useInput(0, { isEmpty: true }, '', 'rating-error');
 
     const [numberPhone, setNumberPhone] = useState('');
-
-    // const [feedbackText, setFeedbackText] = useState('');
-
-    const [department, setDepartment] = useState(arrDepartment[0]);
-    const [approveShare, setApproveShare] = useState(false);
-    const [rating, setRating] = useState(0);
+    // const [department, setDepartment] = useState(arrDepartment[0]);
+    // const [approveShare, setApproveShare] = useState(false);
+    const [rating] = useState(0);
 
     const handleSubmit = (e) => {
         if (email.inputValid) {
@@ -189,7 +223,7 @@ const FeedBackForm = ({
                     email: email.value,
                     'number-phone': numberPhone,
                     'feedback-text': feedbackText.value,
-                    department: department,
+                    department: departmentN.value,
                     rating: rating
                 })
             };
@@ -200,17 +234,23 @@ const FeedBackForm = ({
             e.preventDefault();
             onCancel();
         }
+        email.checkValid();
+        name.checkValid();
+        surname.checkValid();
+        feedbackText.checkValid();
+        approveShare.checkValid();
+        departmentN.checkValid();
+        ratingN.checkValid();
 
-        email.cheack();
         e.preventDefault();
     };
-    const handleRating = (rate) => {
-        setRating(rate / 10);
-    };
+    // const handleRating = (rate) => {
+    //     setRating(rate / 10);
+    // };
     return (
         <div className="feedback">
             <form className="feedback-form" onSubmit={handleSubmit}>
-                <section>
+                <section className="input-section">
                     <input
                         placeholder={phderName}
                         className={name.styleInput}
@@ -223,27 +263,32 @@ const FeedBackForm = ({
                         <p className="error-label">{name.getTextError()}</p>
                     )}
                 </section>
-
-                <input
-                    placeholder={phderSurname}
-                    className={surname.styleInput}
-                    type="text"
-                    value={surname.value}
-                    onChange={(e) => surname.onChange(e)}
-                    onBlur={(e) => surname.onBlur(e)}
-                />
-
-                <input
-                    placeholder={phderEmail}
-                    className={email.styleInput}
-                    type="text"
-                    value={email.value}
-                    onChange={(e) => email.onChange(e)}
-                    onBlur={(e) => email.onBlur(e)}
-                />
-                {email.isDirty && email.minLengthErr && (
-                    <p className="error-label"> not valid email</p>
-                )}
+                <section className="input-section">
+                    <input
+                        placeholder={phderSurname}
+                        className={surname.styleInput}
+                        type="text"
+                        value={surname.value}
+                        onChange={(e) => surname.onChange(e)}
+                        onBlur={(e) => surname.onBlur(e)}
+                    />
+                    {surname.isDirty && !surname.inputValid && (
+                        <p className="error-label">{surname.getTextError()}</p>
+                    )}
+                </section>
+                <section className="input-section">
+                    <input
+                        placeholder={phderEmail}
+                        className={email.styleInput}
+                        type="text"
+                        value={email.value}
+                        onChange={(e) => email.onChange(e)}
+                        onBlur={(e) => email.onBlur(e)}
+                    />
+                    {email.isDirty && !email.inputValid && (
+                        <p className="error-label">{email.getTextError()}</p>
+                    )}
+                </section>
 
                 <section>
                     <PhoneInput
@@ -258,25 +303,32 @@ const FeedBackForm = ({
                         onChange={(phone) => setNumberPhone(phone)}
                     ></PhoneInput>
                 </section>
-                <textarea
-                    // name="description"
-                    placeholder={phderFeedbackText}
-                    className={feedbackText.styleInput}
-                    type="text"
-                    value={feedbackText.value}
-                    onChange={(e) => feedbackText.onChange(e)}
-                    onBlur={(e) => feedbackText.onBlur(e)}
-                ></textarea>
+                <section className="input-section">
+                    <textarea
+                        placeholder={phderFeedbackText}
+                        className={feedbackText.styleInput}
+                        type="text"
+                        value={feedbackText.value}
+                        onChange={(e) => feedbackText.onChange(e)}
+                        onBlur={(e) => feedbackText.onBlur(e)}
+                    ></textarea>
+                    {feedbackText.isDirty && !feedbackText.inputValid && (
+                        <p className="error-label">
+                            {feedbackText.getTextError()}
+                        </p>
+                    )}
+                </section>
                 <section className="department-select-section">
                     <label htmlFor="form-department-select">
                         {'department'}
                     </label>
                     <select
                         id="form-department-select"
-                        className="form-select"
+                        className={departmentN.styleInput}
                         name="select"
-                        value={department}
-                        onChange={(e) => setDepartment(e.target.value)}
+                        value={departmentN.value}
+                        onChange={(e) => departmentN.onChange(e)}
+                        onBlur={() => departmentN.onBlur()}
                     >
                         {arrDepartment.map((item, index) => {
                             return (
@@ -290,26 +342,32 @@ const FeedBackForm = ({
                 <section className="approve-section">
                     <input
                         type="checkbox"
-                        checked={approveShare}
-                        onChange={(e) => {
-                            setApproveShare(e.target.checked);
-                        }}
+                        className={approveShare.styleInput}
+                        checked={approveShare.value}
+                        onChange={(e) => approveShare.onChange(e)}
+                        onBlur={(e) => approveShare.onBlur(e)}
                     />
                     <label htmlFor=""> {approveText}</label>
                 </section>
+
                 <section className="rating">
                     <p>{ratingLabel}</p>
-                    <Rating
-                        onClick={handleRating}
-                        ratingValue={rating}
-                        size={30}
-                        allowHalfIcon
-                        transition
-                        fillColor="orange"
-                        emptyColor="gray"
-                        className="rating"
-                    />
+                    <div className={ratingN.styleInput}>
+                        <ReactStars
+                            emptyIcon={<i className="fa fa-star"></i>}
+                            halfIcon={<i className="fa fa-star-half-alt"></i>}
+                            fullIcon={<i className="fa fa-star"></i>}
+                            count={5}
+                            // onChange={handleRating}
+                            onChange={ratingN.changeRating}
+                            value={ratingN.value}
+                            size={20}
+                            isHalf={true}
+                            activeColor="#ffd700"
+                        />
+                    </div>
                 </section>
+
                 <input type="submit" value={'Отправить'} />
             </form>
         </div>

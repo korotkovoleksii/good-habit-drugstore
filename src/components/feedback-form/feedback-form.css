@@ -29,7 +29,7 @@
     height: 120px;
     resize: none;
     font-family: 'Lato';
-    /* position: absolute; */
+    margin-top: 15px;
 }
 .department-select-section {
     display: flex;
@@ -49,14 +49,26 @@
 .rating {
     display: flex;
     justify-content: space-between;
+    margin: 15px 0;
+}
+.rating-s {
+    border: 1px solid red;
 }
 .input-text-error {
     border-color: red;
+}
+.input-checkbox-text-error {
+    outline: 1px solid red;
+}
+.rating-error {
+    border: 1px solid red;
 }
 .error-label {
     color: red;
     font-size: 15px;
     font-weight: 400;
+    position: absolute;
+    bottom: 0;
 }
 
 .qqq {
@@ -70,3 +82,15 @@
 /* .qqq input {
     background-color: #f5f6fa;
 } */
+
+.input-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+
+    /* width: 100%; */
+    /* flex-direction: row; */
+    /* align-items: center; */
+    /* justify-content: space-around; */
+}
