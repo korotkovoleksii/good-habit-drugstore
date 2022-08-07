@@ -112,6 +112,7 @@ const useInput = (initialValue, validations, classStyle, classStyleError) => {
     };
     const onChange = (e) => {
         setValue(e.target.value);
+        setDirty(true);
         cheack();
     };
     const onBlur = () => {
