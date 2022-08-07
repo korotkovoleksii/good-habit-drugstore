@@ -32,11 +32,9 @@ const FeedBack = () => {
         setIsOpen(true);
     };
     const handleSubmit = () => {
-        console.log(' Submit send feedback to server');
         setIsOpen(false);
     };
     const handleCancel = () => {
-        console.log('Cansel function!');
         setIsOpen(false);
     };
 

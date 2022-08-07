@@ -30,9 +30,6 @@ const Tabs = () => {
     };
     const renderTabContent = () => {
         if (isLoad) {
-            console.log(tabsData);
-            console.log(activeTab);
-
             const tabContent = tabsData.data.find(
                 (item) => item.category === activeTab
             );

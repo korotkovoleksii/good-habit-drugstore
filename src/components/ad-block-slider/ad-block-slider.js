@@ -13,9 +13,7 @@ const AdBlockSlider = () => {
                 return !response.ok ? Promise.reject(error) : response.json();
             })
             .then((data) => {
-                console.log(data);
                 setDataSlider(data['slider']);
-
                 setIsLoad(true);
             })
             .catch((error) => {

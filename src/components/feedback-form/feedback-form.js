@@ -22,7 +22,7 @@ const useValidation = (value, validations) => {
                 return item;
             }
         });
-        console.log(rez);
+
         if (!rez) {
             setListErrors([...listErrors, error]);
         }
@@ -71,8 +71,7 @@ const useValidation = (value, validations) => {
 
                 case 'isEmail': {
                     const re = /@/;
-                    console.log(value);
-                    console.log(re.test(String(value).toLowerCase()));
+
                     re.test(String(value).toLowerCase())
                         ? setEmailError(false)
                         : setEmailError(true);
@@ -116,8 +115,6 @@ const useInput = (initialValue, validations, classStyle, classStyleError) => {
         cheack();
     };
     const onBlur = () => {
-        console.log(isDirty);
-
         setDirty(true);
         cheack();
     };
@@ -198,13 +195,11 @@ const FeedBackForm = ({
             fetch(`${domain}/feedback-list`, requestOptions)
                 .then((response) => response.json())
                 .then((data) => console.log(data));
-            console.log(' Submit send feedback to server');
-            console.log('flshjkghaklsdjfgjksaklqqqqq');
+
             e.preventDefault();
             onCancel();
         }
 
-        console.log('klasjdfljkh');
         email.cheack();
         e.preventDefault();
     };
@@ -214,17 +209,19 @@ const FeedBackForm = ({
     return (
         <div className="feedback">
             <form className="feedback-form" onSubmit={handleSubmit}>
-                <input
-                    placeholder={phderName}
-                    className={name.styleInput}
-                    type="text"
-                    value={name.value}
-                    onChange={(e) => name.onChange(e)}
-                    onBlur={(e) => name.onBlur(e)}
-                />
-                {name.isDirty && name.minLengthErr && (
-                    <p className="error-label">{name.getTextError()}</p>
-                )}
+                <section>
+                    <input
+                        placeholder={phderName}
+                        className={name.styleInput}
+                        type="text"
+                        value={name.value}
+                        onChange={(e) => name.onChange(e)}
+                        onBlur={(e) => name.onBlur(e)}
+                    />
+                    {name.isDirty && !name.inputValid && (
+                        <p className="error-label">{name.getTextError()}</p>
+                    )}
+                </section>
 
                 <input
                     placeholder={phderSurname}
