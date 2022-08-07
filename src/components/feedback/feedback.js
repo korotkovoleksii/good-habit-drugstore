@@ -69,9 +69,9 @@ const FeedBack = () => {
                                 btnTextCancel={
                                     feedbackFormData['text-btn-cancel']
                                 }
-                                btnTextSubmit={
-                                    feedbackFormData['text-btn-submit']
-                                }
+                                // btnTextSubmit={
+                                //     feedbackFormData['text-btn-submit']
+                                // }
                             >
                                 <FeedBackForm
                                     phderName={

@@ -10,10 +10,10 @@ const Modal = ({
     title,
     isOpen,
     onCancel,
-    onSubmit,
+    // onSubmit,
     children,
-    btnTextCancel,
-    btnTextSubmit
+    btnTextCancel
+    // btnTextSubmit
 }) => {
     const keydownHandler = ({ key }) => {
         switch (key) {
@@ -72,7 +72,7 @@ const Modal = ({
                                 onCancel();
                             }}
                         ></Button>
-                        <Button
+                        {/* <Button
                             style={{
                                 class: 'ad-block-btn-green'
                             }}
@@ -81,7 +81,7 @@ const Modal = ({
                                 e.preventDefault();
                                 onSubmit();
                             }}
-                        ></Button>
+                        ></Button> */}
                     </div>
                 </div>
                 <div onClick={onCancel} className="modalOverlay" />
