@@ -22,7 +22,7 @@ TabContentItem.propTypes = {
     price: PropTypes.string,
     image: PropTypes.string,
     textBtn: PropTypes.string,
-    link: PropTypes.link
+    link: PropTypes.string
 };
 
 export default TabContentItem;
