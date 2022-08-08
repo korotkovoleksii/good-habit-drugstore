@@ -1,9 +1,6 @@
 .feedback {
     height: 100%;
     width: 100%;
-    /* display: flex;
-    flex-direction: column; */
-
     position: absolute;
 }
 .feedback-form {
@@ -36,7 +33,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    /* position: absolute; */
 }
 .approve-section {
     margin-top: 25px;
@@ -44,7 +40,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    /* position: relative; */
 }
 .rating {
     display: flex;
@@ -54,10 +49,10 @@
 .rating-s {
     border: 1px solid red;
 }
-.input-text-error {
+.input-error {
     border-color: red;
 }
-.input-checkbox-text-error {
+.input-checkbox-error {
     outline: 1px solid red;
 }
 .rating-error {
@@ -75,22 +70,20 @@
     background-color: red;
     width: 100%;
 }
-/* .www {
-    background-color: #f5f6fa !important;
-    width: 100% !important;
-} */
-/* .qqq input {
-    background-color: #f5f6fa;
-} */
 
 .input-section {
     position: relative;
     display: flex;
     flex-direction: column;
     padding-bottom: 15px;
-
-    /* width: 100%; */
-    /* flex-direction: row; */
-    /* align-items: center; */
-    /* justify-content: space-around; */
+}
+.send-button {
+    background-color: #4e72d0;
+    color: white;
+    padding: 10px 15px;
+    font-weight: 600;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }

@@ -1,15 +1,13 @@
-import { useEffect, useState } from 'react';
-
-import PropTypes from 'prop-types';
-// import RatingStars from '../rating-stars/rating-stars';
-// import { Rating } from 'react-simple-star-rating';
-
-import ReactStars from 'react-rating-stars-component';
 import { v4 as uuidv4 } from 'uuid';
 import PhoneInput from 'react-phone-input-2';
+import PropTypes from 'prop-types';
+import ReactStars from 'react-rating-stars-component';
+
+import { useEffect, useState } from 'react';
 
 import 'react-phone-input-2/lib/style.css';
 import './feedback-form.css';
+
 const useValidation = (value, validations) => {
     const [isEmpty, setIsEmpty] = useState(true);
     const [minLengthErr, setMinLengthErr] = useState(false);
@@ -19,7 +17,6 @@ const useValidation = (value, validations) => {
     const [listErrors, setListErrors] = useState([]);
 
     const addError = (error) => {
-        console.log(listErrors);
         const rez = listErrors.find((item) => {
             if (Object.keys(item)[0] === Object.keys(error)[0]) {
                 return item;
@@ -36,7 +33,6 @@ const useValidation = (value, validations) => {
                 return item;
             }
         });
-
         setListErrors([...newList]);
     };
     const getTextError = () => {
@@ -54,10 +50,8 @@ const useValidation = (value, validations) => {
                         setMinLengthErr(false);
                         remoteError('minLength');
                     }
-
                     break;
                 }
-
                 case 'maxLength': {
                     if (value.length > validations[validation]) {
                         setMaxLengthErr(true);
@@ -66,7 +60,6 @@ const useValidation = (value, validations) => {
                         setMaxLengthErr(false);
                         remoteError('maxLength');
                     }
-
                     break;
                 }
                 case 'isEmail': {
@@ -78,7 +71,6 @@ const useValidation = (value, validations) => {
                         setEmailError(false);
                         remoteError('isEmail');
                     }
-
                     break;
                 }
                 case 'isEmpty': {
@@ -92,6 +84,7 @@ const useValidation = (value, validations) => {
             }
         }
     }, [value]);
+
     useEffect(() => {
         if (isEmpty || minLengthErr || maxLengthErr || emailError) {
             setInputValid(false);
@@ -99,6 +92,7 @@ const useValidation = (value, validations) => {
             setInputValid(true);
         }
     }, [isEmpty, minLengthErr, maxLengthErr, emailError]);
+
     return {
         isEmpty,
         minLengthErr,
@@ -115,6 +109,7 @@ const useInput = (initialValue, validations, classStyle, classStyleError) => {
     const [isDirty, setDirty] = useState(false);
     const valid = useValidation(value, validations);
     const [styleInput, setStyleInput] = useState(classStyle);
+
     const checkValid = () => {
         if (!valid.inputValid) {
             setStyleInput(styleInput + ' ' + classStyleError);
@@ -122,6 +117,7 @@ const useInput = (initialValue, validations, classStyle, classStyleError) => {
             setStyleInput(classStyle);
         }
     };
+
     const onChange = (e) => {
         if ('checked' in e.target) {
             setValue(e.target.checked);
@@ -133,30 +129,24 @@ const useInput = (initialValue, validations, classStyle, classStyleError) => {
         setDirty(true);
         checkValid();
     };
+
     const onBlur = () => {
-        setDirty(true);
-        checkValid();
-    };
-    const changeRating = (r) => {
-        setValue(r);
         setDirty(true);
         checkValid();
     };
 
     return {
+        setValue,
         value,
         onChange,
         isDirty,
         onBlur,
         styleInput,
         checkValid,
-        changeRating,
         ...valid
     };
 };
-// const useInputCheckbox = (initialValue, validatons, classStyle, classStyleError)=>{
 
-// }
 const FeedBackForm = ({
     phderName,
     phderSurname,
@@ -171,47 +161,49 @@ const FeedBackForm = ({
         '',
         { isEmpty: true, minLength: 2 },
         'input-text',
-        'input-text-error'
+        'input-error'
     );
     const surname = useInput(
         '',
         { isEmpty: true, minLength: 2 },
         'input-text',
-        'input-text-error'
+        'input-error'
     );
     const email = useInput(
         '',
         { isEmpty: true, isEmail: true },
         'input-text',
-        'input-text-error'
+        'input-error'
     );
     const feedbackText = useInput(
         '',
         { isEmpty: true, minLength: 2 },
         'feedback-text input-text',
-        'input-text-error'
+        'input-error'
     );
     const approveShare = useInput(
         false,
         { isEmpty: true },
         'some-class',
-        'input-checkbox-text-error'
+        'input-checkbox-error'
     );
     const departmentN = useInput(
-        '',
+        arrDepartment[0],
         { isEmpty: true },
         'form-select',
-        'input-text-error'
+        'input-error'
     );
-    const ratingN = useInput(0, { isEmpty: true }, '', 'rating-error');
 
     const [numberPhone, setNumberPhone] = useState('');
-    // const [department, setDepartment] = useState(arrDepartment[0]);
-    // const [approveShare, setApproveShare] = useState(false);
-    const [rating] = useState(0);
+    const [rating, setRating] = useState(0);
 
     const handleSubmit = (e) => {
-        if (email.inputValid) {
+        if (
+            email.inputValid &&
+            name.inputValid &&
+            approveShare.inputValid &&
+            departmentN.inputValid
+        ) {
             const domain = process.env.REACT_APP_DOMAIN;
             const requestOptions = {
                 method: 'POST',
@@ -240,13 +232,13 @@ const FeedBackForm = ({
         feedbackText.checkValid();
         approveShare.checkValid();
         departmentN.checkValid();
-        ratingN.checkValid();
-
         e.preventDefault();
     };
-    // const handleRating = (rate) => {
-    //     setRating(rate / 10);
-    // };
+
+    const handleRating = (rate) => {
+        setRating(rate * 2);
+    };
+
     return (
         <div className="feedback">
             <form className="feedback-form" onSubmit={handleSubmit}>
@@ -352,23 +344,18 @@ const FeedBackForm = ({
 
                 <section className="rating">
                     <p>{ratingLabel}</p>
-                    <div className={ratingN.styleInput}>
-                        <ReactStars
-                            emptyIcon={<i className="fa fa-star"></i>}
-                            halfIcon={<i className="fa fa-star-half-alt"></i>}
-                            fullIcon={<i className="fa fa-star"></i>}
-                            count={5}
-                            // onChange={handleRating}
-                            onChange={ratingN.changeRating}
-                            value={ratingN.value}
-                            size={20}
-                            isHalf={true}
-                            activeColor="#ffd700"
-                        />
-                    </div>
+
+                    <ReactStars
+                        count={5}
+                        onChange={handleRating}
+                        value={rating}
+                        size={20}
+                        isHalf={true}
+                        activeColor="#ffd700"
+                    />
                 </section>
 
-                <input type="submit" value={'Отправить'} />
+                <input className="send-button" type="submit" value={'Send'} />
             </form>
         </div>
     );
