@@ -1,5 +1,5 @@
-import './header-info.css';
 import { useEffect, useState } from 'react';
+import './header-info.css';
 
 const HeaderInfo = () => {
     const [phone, setPhone] = useState('');

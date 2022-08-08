@@ -1,6 +1,6 @@
-import './navigation-links-list.css';
 import { useEffect, useState } from 'react';
 import NavigationLink from '../navigation-link/navigation-link';
+import './navigation-links-list.css';
 
 const NavigationLinksList = () => {
     const [arrNavigationLinks, setArrNavigationLinks] = useState([]);

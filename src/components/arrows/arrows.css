@@ -1,12 +1,10 @@
 .arrows {
     display: flex;
-
     justify-content: space-between;
     height: 100%;
     position: absolute;
     top: 30%;
     width: 100%;
-
     z-index: 4;
 }
 

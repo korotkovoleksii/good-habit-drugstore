@@ -11,7 +11,6 @@ describe('Feature component', () => {
                 imageName="test.png"
             ></Feature>
         );
-        // await waitFor(() => screen.getByRole('img'));
 
         expect(screen.getByText('test')).toBeInTheDocument();
         expect(screen.getByText('test description')).toBeInTheDocument();

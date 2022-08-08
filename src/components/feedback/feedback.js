@@ -1,17 +1,16 @@
-import './feedback.css';
-import feedbackImg from '../../assets/images/feedback.jpeg';
+import { useState, useEffect } from 'react';
 import Button from '../button/button';
 import Modal from '../modal/modal';
 import FeedBackForm from '../feedback-form/feedback-form';
-import { useState, useEffect } from 'react';
-// import { CSSTransition } from 'react-transition-group';
+import feedbackImg from '../../assets/images/feedback.jpeg';
+import './feedback.css';
+
 const FeedBack = () => {
     const [error, setError] = useState(null);
     const [feedbackFormData, setFeedbackFormData] = useState([]);
     const [isLoad, setIsLoad] = useState(false);
     const domain = process.env.REACT_APP_DOMAIN;
     useEffect(() => {
-        // const domain = process.env.REACT_APP_DOMAIN;
         fetch(`${domain}/feedback-form-info`)
             .then((response) => {
                 return !response.ok ? Promise.reject(error) : response.json();
@@ -69,9 +68,6 @@ const FeedBack = () => {
                                 btnTextCancel={
                                     feedbackFormData['text-btn-cancel']
                                 }
-                                // btnTextSubmit={
-                                //     feedbackFormData['text-btn-submit']
-                                // }
                             >
                                 <FeedBackForm
                                     phderName={

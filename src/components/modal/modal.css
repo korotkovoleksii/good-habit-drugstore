@@ -32,7 +32,6 @@
     flex-direction: column;
     justify-content: space-between;
     z-index: 10;
-    /* animation: moving-modal-window-open 1s; */
 }
 
 .modalWindow-transition-enter-active {
@@ -89,10 +88,8 @@
 }
 
 .modalWindow-enter-active {
-    /*We give the list the initial dimension of the list button*/
     animation: moving-modal-window-open 1s;
 }
 .modalWindow-exit-active {
     animation: moving-modal-window-open 1s reverse;
 }
-/* This is where we can add the transition*/

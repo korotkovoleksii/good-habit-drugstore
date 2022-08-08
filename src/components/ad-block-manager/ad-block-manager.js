@@ -9,7 +9,6 @@ const AdBlockManager = ({ adData }) => {
             </>
         );
     }
-
     return (
         <>
             <AdBlock
