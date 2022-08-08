@@ -5,6 +5,7 @@ import Benefits from '../benefits/benefits';
 import AdBlockFastDeliv from '../ad-block-fast-deliv/ad-block-fast-deliv';
 import Tabs from '../tabs/tabs';
 import AdBlockSlider from '../ad-block-slider/ad-block-slider';
+import FeedBack from '../feedback/feedback';
 const Body = () => {
     return (
         <div className="body">
@@ -14,6 +15,7 @@ const Body = () => {
             <AdBlockFastDeliv></AdBlockFastDeliv>
             <Tabs></Tabs>
             <AdBlockSlider></AdBlockSlider>
+            <FeedBack></FeedBack>
         </div>
     );
 };

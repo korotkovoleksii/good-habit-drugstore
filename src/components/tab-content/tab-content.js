@@ -1,7 +1,6 @@
 import TabContentItem from '../tab-content-item/tab-content-item';
 import './tab-content.css';
 const TabContent = ({ tabData }) => {
-    console.log(tabData, 'fasdgasdgs');
     const view = tabData.items.map((item) => (
         <TabContentItem
             key={item.id}

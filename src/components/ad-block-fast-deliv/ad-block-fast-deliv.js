@@ -10,7 +10,6 @@ const AdBlockFastDeliv = () => {
         fetch(`${domain}/ad-block`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 setAdBlockInfo(data['ad-block-fast-delivery']);
                 setIsLoad(true);
             });

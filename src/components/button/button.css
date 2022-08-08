@@ -1,6 +1,5 @@
 .ad-block-btn {
     border: none;
-    margin-top: 50px;
     border-radius: 10px;
     padding: 18px 40px;
     color: #fff;
@@ -9,6 +8,7 @@
     background-color: #ef6500;
     text-decoration: none;
     display: inline-block;
+    text-align: center;
 }
 .ad-block-btn:hover {
     transition: 0.5s;
