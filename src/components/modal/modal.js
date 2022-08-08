@@ -71,8 +71,7 @@ Modal.propTypes = {
     onCancel: PropTypes.func,
     onSubmit: PropTypes.func,
     children: PropTypes.node,
-    btnTextCancel: PropTypes.string,
-    btnTextSubmit: PropTypes.string
+    btnTextCancel: PropTypes.string
 };
 
 Modal.defaultProps = {

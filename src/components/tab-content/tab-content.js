@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import TabContentItem from '../tab-content-item/tab-content-item';
 import './tab-content.css';
 const TabContent = ({ tabData }) => {
@@ -12,5 +14,8 @@ const TabContent = ({ tabData }) => {
         ></TabContentItem>
     ));
     return <div className="tab-content">{view}</div>;
+};
+TabContent.propTypes = {
+    tabData: PropTypes.object
 };
 export default TabContent;

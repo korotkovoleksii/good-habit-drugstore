@@ -3,7 +3,7 @@ import logo from '../../assets/images/logo.svg';
 import './logo.css';
 
 const Logo = (props) => {
-    const { link = '#' } = props;
+    const { link } = props;
     return (
         <a href={link}>
             <img className="logo" src={logo} alt="logo of compony" />
@@ -14,4 +14,9 @@ const Logo = (props) => {
 Logo.propTypes = {
     link: PropTypes.string
 };
+
+Logo.defaultProps = {
+    link: '#'
+};
+
 export default Logo;

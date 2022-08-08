@@ -32,7 +32,10 @@ AdBlock.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     btnText: PropTypes.string,
-    image: PropTypes.string
+    image: PropTypes.string,
+    styel: PropTypes.object,
+    isRight: PropTypes.bool,
+    link: PropTypes.string
 };
 
 export default AdBlock;

@@ -1,5 +1,6 @@
-import './tab-content-item.css';
+import PropTypes from 'prop-types';
 import Button from '../button/button';
+import './tab-content-item.css';
 const TabContentItem = ({ title, price, image, textBtn, link }) => {
     let srcImg = null;
     try {
@@ -16,4 +17,12 @@ const TabContentItem = ({ title, price, image, textBtn, link }) => {
         </div>
     );
 };
+TabContentItem.propTypes = {
+    title: PropTypes.string,
+    price: PropTypes.string,
+    image: PropTypes.string,
+    textBtn: PropTypes.string,
+    link: PropTypes.link
+};
+
 export default TabContentItem;
