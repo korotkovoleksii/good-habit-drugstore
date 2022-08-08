@@ -1,6 +1,6 @@
-import './features-list.css';
-import Feature from '../feature/feature';
 import { useState, useEffect } from 'react';
+import Feature from '../feature/feature';
+import './features-list.css';
 
 const FeatureList = () => {
     const [error, setError] = useState(null);
@@ -14,7 +14,6 @@ const FeatureList = () => {
             })
             .then((data) => {
                 setFeatureList(data);
-
                 setIsLoad(true);
             })
             .catch((error) => {

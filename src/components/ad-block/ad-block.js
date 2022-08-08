@@ -1,9 +1,9 @@
-import './ad-block.css';
 import PropTypes from 'prop-types';
 import Button from '../button/button';
+import './ad-block.css';
+
 const AdBlock = (props) => {
     const { title, description, btnText, image, style, isRight, link } = props;
-
     let classAdBlock = `container ad-block ${style['ad-block'].class}`;
     let classTitle = `ad-block-title ${style['title']?.class}`;
     classAdBlock += isRight ? ' row-reverse' : '';

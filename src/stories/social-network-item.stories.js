@@ -11,6 +11,6 @@ export const Default = Template.bind({});
 
 Default.args = {
     link: 'facebook.com',
-    pathImage: 'facebook-icon.png',
+    nameImage: 'facebook-icon.png',
     alt: 'facebook icon'
 };

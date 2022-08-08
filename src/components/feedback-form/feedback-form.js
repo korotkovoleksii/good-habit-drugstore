@@ -187,7 +187,7 @@ const FeedBackForm = ({
         'some-class',
         'input-checkbox-error'
     );
-    const departmentN = useInput(
+    const department = useInput(
         arrDepartment[0],
         { isEmpty: true },
         'form-select',
@@ -202,7 +202,7 @@ const FeedBackForm = ({
             email.inputValid &&
             name.inputValid &&
             approveShare.inputValid &&
-            departmentN.inputValid
+            department.inputValid
         ) {
             const domain = process.env.REACT_APP_DOMAIN;
             const requestOptions = {
@@ -215,7 +215,7 @@ const FeedBackForm = ({
                     email: email.value,
                     'number-phone': numberPhone,
                     'feedback-text': feedbackText.value,
-                    department: departmentN.value,
+                    department: department.value,
                     rating: rating
                 })
             };
@@ -231,7 +231,7 @@ const FeedBackForm = ({
         surname.checkValid();
         feedbackText.checkValid();
         approveShare.checkValid();
-        departmentN.checkValid();
+        department.checkValid();
         e.preventDefault();
     };
 
@@ -316,11 +316,11 @@ const FeedBackForm = ({
                     </label>
                     <select
                         id="form-department-select"
-                        className={departmentN.styleInput}
+                        className={department.styleInput}
                         name="select"
-                        value={departmentN.value}
-                        onChange={(e) => departmentN.onChange(e)}
-                        onBlur={() => departmentN.onBlur()}
+                        value={department.value}
+                        onChange={(e) => department.onChange(e)}
+                        onBlur={() => department.onBlur()}
                     >
                         {arrDepartment.map((item, index) => {
                             return (

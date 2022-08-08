@@ -1,6 +1,5 @@
-// import AdBlock from '../ad-block/ad-block';
 import { useState, useEffect } from 'react';
-// import Slider from '../slider/slider';
+
 import AdBlockManager from '../ad-block-manager/ad-block-manager';
 
 const MainAdBlock = () => {
@@ -18,18 +17,7 @@ const MainAdBlock = () => {
     }, []);
     return (
         <div>
-            {isLoad && (
-                <AdBlockManager adData={adBlockInfo}></AdBlockManager>
-                // <Slider items={adBlockInfo}></Slider>
-                // <AdBlock
-                //     title={adBlockInfo.title}
-                //     description={adBlockInfo.description}
-                //     btnText={adBlockInfo.titleBnt}
-                //     image={adBlockInfo.image}
-                //     style={adBlockInfo.style}
-                //     isRight={adBlockInfo.isRight}
-                // ></AdBlock>
-            )}
+            {isLoad && <AdBlockManager adData={adBlockInfo}></AdBlockManager>}
         </div>
     );
 };
