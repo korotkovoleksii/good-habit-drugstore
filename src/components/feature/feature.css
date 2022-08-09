@@ -18,5 +18,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 270px;
+    min-width: 250px;
+}
+
+@media (max-width: 765px) {
+    .icon-feature {
+        transform: scale(75%, 75%);
+    }
 }
