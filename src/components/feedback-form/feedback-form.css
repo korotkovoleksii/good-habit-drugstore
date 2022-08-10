@@ -33,6 +33,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    position: relative;
 }
 .approve-section {
     margin-top: 25px;
@@ -40,15 +41,30 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    position: relative;
 }
 .rating {
     display: flex;
     justify-content: space-between;
     margin: 15px 0;
+    position: relative;
 }
-.rating-s {
-    border: 1px solid red;
+
+.input-block-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
+.input-block-error {
+    color: red;
+    font-size: 15px;
+    font-weight: 400;
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+}
+
 .input-error {
     border-color: red;
 }
@@ -58,17 +74,14 @@
 .rating-error {
     border: 1px solid red;
 }
+
 .error-label {
     color: red;
     font-size: 15px;
     font-weight: 400;
     position: absolute;
     bottom: 0;
-}
-
-.qqq {
-    background-color: red;
-    width: 100%;
+    left: 0;
 }
 
 .input-section {
@@ -86,4 +99,5 @@
     cursor: pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    margin-top: 20px;
 }

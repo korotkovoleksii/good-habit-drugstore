@@ -1,7 +1,7 @@
-// import { v4 as uuidv4 } from 'uuid';
-// import PhoneInput from 'react-phone-input-2';
+import { v4 as uuidv4 } from 'uuid';
+import PhoneInput from 'react-phone-input-2';
 import PropTypes from 'prop-types';
-// import ReactStars from 'react-rating-stars-component';
+import ReactStars from 'react-rating-stars-component';
 
 // import { useEffect, useState } from 'react';
 import validate from '../../validateInfo';
@@ -12,55 +12,93 @@ import './feedback-form.css';
 
 const FeedBackForm = ({
     phderName,
-    // phderSurname,
-    // phderEmail,
-    // phderFeedbackText,
-    // ratingLabel,
-    // arrDepartment,
-    // approveText,
+    phderSurname,
+    phderEmail,
+    phderFeedbackText,
+    ratingLabel,
+    arrDepartment,
+    approveText,
     onCancel
 }) => {
-    const submitF = () => {
+    const submitF = (feedbackData) => {
+        const domain = process.env.REACT_APP_DOMAIN;
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: uuidv4(),
+                name: feedbackData.name,
+                surname: feedbackData.surname,
+                email: feedbackData.email,
+                'number-phone': feedbackData.numberPhone,
+                'feedback-text': feedbackData.feedbackText,
+                department: feedbackData.department,
+                rating: feedbackData.rating
+            })
+        };
+        fetch(`${domain}/feedback-list`, requestOptions)
+            .then((response) => response.json())
+            .then((data) => console.log(data));
         console.log('hello world');
         onCancel();
     };
-    const { handleChange, handleSubmit, values, errors } = useForm(
-        submitF,
-        validate
-    );
+    const {
+        handleBlur,
+        handleChangeInput,
+        handleChangeCheckbox,
+        handleSubmit,
+        handleChangePhoneInput,
+        handleChangeStars,
+        values,
+        errors
+    } = useForm(submitF, validate);
     return (
         <div className="feedback">
             <form className="feedback-form" onSubmit={handleSubmit}>
-                <section className="input-section">
+                <div className="input-section">
                     <input
                         placeholder={phderName}
+                        className="input-text"
                         type="text"
                         name="name"
                         value={values.name}
-                        onChange={handleChange}
+                        onChange={handleChangeInput}
+                        onBlur={handleBlur}
                     />
-                    {errors.name && <p>{errors.name}</p>}
-                </section>
-                {/* <section className="input-section">
+                    {errors.name && (
+                        <p className="error-label">{errors.name}</p>
+                    )}
+                </div>
+                <div className="input-section">
                     <input
+                        className="input-text"
                         placeholder={phderSurname}
                         type="text"
+                        name="surname"
                         value={values.surname}
-                        onChange={handleChange}
+                        onChange={handleChangeInput}
+                        onBlur={handleBlur}
                     />
-                    {errors.surname && <p>{errors.surname}</p>}
-                </section>
-                <section className="input-section">
+                    {errors.surname && (
+                        <p className="error-label">{errors.surname}</p>
+                    )}
+                </div>
+
+                <div className="input-section">
                     <input
+                        className="input-text "
                         placeholder={phderEmail}
                         type="text"
+                        name="email"
                         value={values.email}
-                        onChange={handleChange}
+                        onChange={handleChangeInput}
+                        onBlur={handleBlur}
                     />
-                    {errors.email && <p>{errors.email}</p>}
-                </section>
-
-                <section>
+                    {errors.email && (
+                        <p className="error-label">{errors.email}</p>
+                    )}
+                </div>
+                <div className="input-section">
                     <PhoneInput
                         inputStyle={{
                             width: '100%',
@@ -68,64 +106,97 @@ const FeedBackForm = ({
                         }}
                         country={'ua'}
                         onlyCountries={['ua']}
-                        masks={{ ua: '(...) ..-..-..' }}
+                        masks={{ ua: '(...)..-..-..' }}
                         value={values.numberPhone}
-                        onChange={handleChange}
+                        onChange={(value, country, e) => {
+                            e.target.name = 'numberPhone';
+                            console.log(value);
+                            return handleChangePhoneInput(e, value);
+                        }}
+                        onBlur={handleBlur}
                     ></PhoneInput>
-                    {errors.numberPhone && <p>{errors.numberPhone}</p>}
-                </section>
-                <section className="input-section">
+                    {errors.numberPhone && (
+                        <p className="error-label">{errors.numberPhone}</p>
+                    )}
+                </div>
+                <div className="input-section">
                     <textarea
+                        name="feedbackText"
                         placeholder={phderFeedbackText}
                         type="text"
                         value={values.feedbackText}
-                        onChange={handleChange}
+                        onChange={handleChangeInput}
+                        onBlur={handleBlur}
+                        className="feedback-text input-text"
                     ></textarea>
-                    {errors.feedbackText && <p>{errors.feedbackText}</p>}
-                </section>
-                <section className="department-select-section">
-                    <label htmlFor="form-department-select">
-                        {'department'}
-                    </label>
-                    <select
-                        id="form-department-select"
-                        name="select"
-                        value={values.department}
-                        onChange={handleChange}
-                    >
-                        {arrDepartment.map((item, index) => {
-                            return (
-                                <option key={index} value={item}>
-                                    {item}
-                                </option>
-                            );
-                        })}
-                    </select>
-                    {errors.department && <p>{errors.department}</p>}
-                </section>
-                <section className="approve-section">
-                    <input
-                        type="checkbox"
-                        checked={values.approveShare}
-                        onChange={handleChange}
-                    />
-                    <label htmlFor=""> {approveText}</label>
-                    {errors.approveShare && <p>{errors.approveShare}</p>}
-                </section>
-
-                <section className="rating">
+                    {errors.feedbackText && (
+                        <p className="error-label">{errors.feedbackText}</p>
+                    )}
+                </div>
+                <div className="department-select-section">
+                    <section className="input-block-wrap">
+                        <select
+                            id="form-department-select"
+                            name="department"
+                            value={values.department}
+                            onChange={handleChangeInput}
+                            onBlur={handleBlur}
+                        >
+                            <option value="" selected disabled hidden>
+                                Choose here
+                            </option>
+                            {arrDepartment.map((item, index) => {
+                                return (
+                                    <option key={index} value={item}>
+                                        {item}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                        <label htmlFor="form-department-select">
+                            {'department:'}
+                        </label>
+                    </section>
+                    {errors.department && (
+                        <p className="input-block-error">{errors.department}</p>
+                    )}
+                </div>
+                <div className="approve-section">
+                    <section className="input-block-wrap">
+                        <input
+                            type="checkbox"
+                            checked={values.approveShare}
+                            onChange={handleChangeCheckbox}
+                            name="approveShare"
+                            onBlur={handleBlur}
+                        />
+                        <label htmlFor=""> {approveText}</label>
+                    </section>
+                    {errors.approveShare && (
+                        <p className="input-block-error">
+                            {errors.approveShare}
+                        </p>
+                    )}
+                </div>
+                <div className="rating">
+                    <section className="input-block-wrap">
+                        <ReactStars
+                            count={5}
+                            value={values.rating}
+                            onChange={(newRating) => {
+                                handleChangeStars('rating', newRating * 2);
+                            }}
+                            onBlur={handleBlur}
+                            size={20}
+                            isHalf={true}
+                            activeColor="#ffd700"
+                        />
+                    </section>
                     <p>{ratingLabel}</p>
-
-                    <ReactStars
-                        count={5}
-                        value={values.rating}
-                        onChange={handleChange}
-                        size={20}
-                        isHalf={true}
-                        activeColor="#ffd700"
-                    />
-                    {errors.rating && <p>{errors.rating}</p>}
-                </section> */}
+                    {errors.rating && (
+                        <p className="input-block-error">{errors.rating}</p>
+                    )}
+                </div>
 
                 <input className="send-button" type="submit" value={'Send'} />
             </form>
