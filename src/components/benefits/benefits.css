@@ -1,0 +1,17 @@
+.benefits {
+    margin-top: 115px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 990px) {
+    .benefits {
+        justify-content: space-around;
+    }
+    .benefits > div {
+        /* margin-left: 20px; */
+        margin-bottom: 20px;
+    }
+}

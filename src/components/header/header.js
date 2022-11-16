@@ -1,9 +1,8 @@
-import HeaderInfo from '../header-info/header-info';
 import Logo from '../logo/logo';
 import SocialNetworkList from '../social-network-list/social-network-list';
 import NavigationLinksList from '../navigation-links-list/navigation-links-list';
-
 import Dropdown from '../dropdown/dropdown';
+import HeaderInfo from '../header-info/header-info';
 import './header.css';
 
 const Header = () => {

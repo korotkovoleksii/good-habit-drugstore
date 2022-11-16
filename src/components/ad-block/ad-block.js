@@ -1,18 +1,23 @@
-import './ad-block.css';
-// import staff from '../../assets/images/5ff92dab70c13a002257189c_optimized.webp';
 import PropTypes from 'prop-types';
+import Button from '../button/button';
+import './ad-block.css';
+
 const AdBlock = (props) => {
-    //  adBlockStyle, btnStyle
-    const { title, description, btnText, image } = props;
+    const { title, description, btnText, image, style, isRight, link } = props;
+    let classAdBlock = `container ad-block ${style['ad-block'].class}`;
+    let classTitle = `ad-block-title ${style['title']?.class}`;
+    classAdBlock += isRight ? ' row-reverse' : '';
 
     return (
-        <div className="ad-block">
+        <div className={classAdBlock}>
             <div className="ad-block-info">
-                <h2 className="ad-block-title">{title}</h2>
+                <h2 className={classTitle}>{title}</h2>
                 <p className="ad-block-description">{description}</p>
-                <a className="ad-block-btn" href="#">
-                    {btnText}
-                </a>
+                <Button
+                    title={btnText}
+                    style={style.button}
+                    link={link}
+                ></Button>
             </div>
             <img
                 className="ad-block-img"
@@ -27,10 +32,10 @@ AdBlock.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     btnText: PropTypes.string,
-    image: PropTypes.string
-    // styleBtn: PropTypes.object
-    // adBlockStyle: PropTypes.object,
-    // btnStyle: PropTypes.object
+    image: PropTypes.string,
+    styel: PropTypes.object,
+    isRight: PropTypes.bool,
+    link: PropTypes.string
 };
 
 export default AdBlock;

@@ -1,5 +1,5 @@
-import './header-info.css';
 import { useEffect, useState } from 'react';
+import './header-info.css';
 
 const HeaderInfo = () => {
     const [phone, setPhone] = useState('');
@@ -10,7 +10,6 @@ const HeaderInfo = () => {
         fetch(`${domain}/header-info`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 setPhone(data.phone);
                 setWorkHours(data['work-hours']);
             });

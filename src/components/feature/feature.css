@@ -1,0 +1,28 @@
+.icon-feature {
+    width: 70px;
+    height: 70px;
+    margin-right: 25px;
+}
+.title-feature {
+    font-size: 19px;
+    font-weight: 700;
+    color: #223645;
+    margin-bottom: 15px;
+}
+.description-feature {
+    font-size: 15px;
+    color: #9a9a9a;
+    font-weight: 700;
+}
+.feature {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 250px;
+}
+
+@media (max-width: 765px) {
+    .icon-feature {
+        transform: scale(75%, 75%);
+    }
+}

@@ -1,0 +1,24 @@
+.tab-content-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    height: 450px;
+    width: 265px;
+}
+.tab-content-item-img {
+    width: 245px;
+}
+.tab-content-item-title {
+    margin-top: 30px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #223645;
+}
+.tab-content-item-price {
+    font-size: 17px;
+    font-weight: 700;
+    color: #4e72d0;
+    margin-top: 10px;
+}

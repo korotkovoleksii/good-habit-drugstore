@@ -1,9 +1,18 @@
 .ad-block {
     display: flex;
     background-color: #f5f7fb;
+    flex-direction: row;
+    flex: 1 0 100%;
+    position: relative;
+    justify-content: space-between;
+}
+.row-reverse {
+    flex-direction: row-reverse;
 }
 .ad-block-info {
-    margin-left: 50px;
+    margin-right: 50px;
+
+    padding-left: 50px;
 }
 .ad-block-title {
     margin-top: 110px;
@@ -17,24 +26,34 @@
     font-size: 19px;
     line-height: 1.5;
     color: #9a9a9a;
+    margin-bottom: 50px;
 }
 
+.ad-block-fast-delivery {
+    background-color: #fafbf7;
+}
 .ad-block-img {
     height: 538px;
+    max-width: 600px;
 }
-.ad-block-btn {
-    border: none;
-    margin-top: 50px;
-    border-radius: 10px;
-    padding: 18px 40px;
-    color: #fff;
-    font-weight: 800;
-    font-size: 16px;
-    background-color: aqua;
-    text-decoration: none;
-    display: inline-block;
+
+.ad-block-desiase {
+    background-color: #f0f2fe;
+    text-align: center;
+    width: 400px;
 }
-.ad-block-btn:hover {
-    transition: 0.5s;
-    background-color: #4e72d0;
+.ad-block-vitamins {
+    background-color: #ffcfa1;
+    text-align: center;
+
+    width: 400px;
+}
+.ad-block-healthier {
+    background-color: #eaf7ff;
+    text-align: center;
+
+    width: 400px;
+}
+.ad-block-slider-title {
+    font-size: 40px;
 }

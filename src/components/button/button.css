@@ -1,0 +1,22 @@
+.ad-block-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 18px 40px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 16px;
+    background-color: #ef6500;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+.ad-block-btn:hover {
+    transition: 0.5s;
+    background-color: #4e72d0;
+}
+.ad-block-btn-orange {
+    background-color: #ef6500;
+}
+.ad-block-btn-green {
+    background-color: #5bc199;
+}

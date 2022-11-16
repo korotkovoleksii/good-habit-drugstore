@@ -1,6 +1,5 @@
 .header-info {
     display: flex;
-
     width: 420px;
     flex-direction: row;
     justify-content: space-between;

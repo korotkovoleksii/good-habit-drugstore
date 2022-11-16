@@ -1,0 +1,47 @@
+.feed-back-bg {
+    background-color: #f5f6fa;
+    margin-top: 150px;
+}
+.feed-back {
+    padding-bottom: 100px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.feedback-info {
+    padding: 50px;
+    background-color: #fff;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+}
+.feedback-img {
+    width: 550px;
+}
+.feedback-question {
+    font-size: 15px;
+    color: #9a9a9a;
+}
+.numberPhone {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 600;
+    font-size: 31px;
+    border-bottom: #ededed 1px solid;
+    color: #4e72d0;
+}
+
+.feedback-title {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 21px;
+    color: #223545;
+}
+.feedback-description {
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #9a9a9a;
+    line-height: 1.5;
+}

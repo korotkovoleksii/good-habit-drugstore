@@ -1,0 +1,14 @@
+.tab-nav-item {
+    font-size: 17px;
+    font-weight: 700;
+    color: #9a9a9a;
+    padding: 0 15px 15px 15px;
+}
+.tab-nav-item:hover {
+    cursor: pointer;
+}
+
+.active {
+    border-bottom: #4e72d0 solid 1px;
+    color: #223645;
+}

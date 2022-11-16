@@ -1,0 +1,14 @@
+.tab-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 25px;
+    flex-wrap: wrap;
+}
+@media (max-width: 1080px) {
+    .tab-content {
+        max-width: 75%;
+        justify-content: space-around;
+    }
+}

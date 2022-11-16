@@ -1,0 +1,22 @@
+.feature-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 115px;
+}
+
+@media (max-width: 1000px) {
+    .container {
+        max-width: none;
+    }
+    .feature-list {
+        flex-wrap: wrap;
+        max-width: 730px;
+        justify-content: space-around;
+        align-self: flex-start;
+    }
+    .feature-list > * {
+        margin-bottom: 30px;
+    }
+}
